@@ -1,0 +1,248 @@
+you are respectful, welcoming, kind, understanding, professional, truthful, honest.\n- You are an AI assistant.\n - Your goal is to answer my questions as accurately as possible and use context I provide to help answer them."
+Data used to infer customer profile:
+•	Demographic
+o	Income
+o	Age
+o	Estimate of people in household (from plan/ products)
+o	Address/ Geography
+o	Credit score
+•	Account details
+o	Plan history/ time remaining on plan
+o	Current plan and pricing
+o	Promotion and upgrade eligibility 
+o	Device upgrade cycle 
+o	# of mobile lines
+o	Current products
+o	Streaming subscriptions/ paid channels
+o	NPS
+•	Account activity
+o	Tower pings
+o	GPS location
+o	Payment history
+o	Payment method
+o	Purchase information (from AT&T)
+o	Connectivity rating
+o	Data usage
+o	Contact/ complaint history
+o	Purchased marketing data (e.g., from google)
+•	Competitor data 
+o	Broadband options at address 
+
+Basic Information:
+
+Name: Sarah Smith
+Age: 38
+Income: $100,000 per year
+Credit score: 784
+Household Count: 4 (estimated)
+Location: Heath, TX, 75032
+
+Last interaction:
+
+Sarah just received her December monthly bill from AT&T and noticed an unexpected charge of $50. She called AT&T’s customer service department to inquire about the charge. After waiting on hold for several minutes, she spoke with a representative who listened to her concern and reviewed her account.
+
+The representative explained that the charges were from an in-app purchases of a game on the iPad. Sarah recognized the game as one that her children enjoy playing and noted that they must have made the purchases without her permission. The representative asked a few questions about the charges and then put Sarah on hold for a few moments. When he came back, he said that he could see she was a long-time customer and had never missed a bill. He then said that the charges would be reversed this time as a one-time courtesy.
+
+Sarah then asked the representative if there were any current promotions or offers available that could help reduce her monthly bill. The representative provided details about a current promotion that bundled her current unlimited data plan with a TV subscription, and also offered to review Sarah's account to see if there are any other discounts or promotions that she may be eligible for. Sarah declined for the moment, saying she was happy with her current TV provider, but she appreciated the offer.
+
+Overall, the representative was able to resolve Sarah's concern about the unexpected charge and provided her with information about new promotions. This positive interaction with AT&T customer service department helped to strengthen Sarah's loyalty to the company and left her feeling satisfied with the outcome of her call.
+
+Account details:
+
+Number of devices: 6
+
+Type of devices: 3 iPhones, 1 iPad, 2 Apple watches
+
+Typical monthly usage: 15GB of data, 500 minutes of talk time, unlimited text messaging
+
+Plans and services: Unlimited data plan, with a bundle of talk and text services
+
+Usage data across devices in the last year: 
+
+Month: January
+
+
+
+
+iPhone 1: 4.5 GBs, 150 talk minutes, 350 text messages, paid on time
+iPhone 2: 2 GBs, 100 talk minutes, 200 text messages, paid on time
+iPhone 3: 2 GBs, 80 talk minutes, 200 text messages, paid on time
+iPad: 3 GBs, 70 talk minutes, 150 text messages, paid on time
+Apple Watch 1: 500 MBs, 50 talk minutes, 75 text messages, paid on time
+Apple Watch 2: 500 MBs, 50 talk minutes, 50 text messages, paid on time
+iPhone 1: 4 GBs, 100 talk minutes, 250 text messages, paid on time
+
+Month: May
+
+iPhone 1: 3 GBs, 100 talk minutes, 300 text messages, paid on time
+iPhone 2: 2 GBs, 150 talk minutes, 250 text messages, paid on time
+iPhone 3: 4 GBs, 80 talk minutes, 200 text messages, paid on time
+iPad: 3 GBs, 80 talk minutes, 150 text messages, paid on time
+Apple Watch 1: 500 MBs, 50 talk minutes, 75 text messages, paid on time
+Apple Watch 2: 500 MBs, 50 talk minutes, 50 text messages, paid on time
+
+June:
+
+iPhone 1: 5GB, 200 talk minutes, 500 text messages, paid on time 
+iPhone 2: 3GB, 100 talk minutes, 300 text messages, paid on time
+iPhone 3: 4GB, 150 talk minutes, 200 text messages, paid on time
+iPad: 2GB, 50 talk minutes, 0 text messages, paid on time
+Apple Watch 1: 500MB, 0 talk minutes, 50 text messages, paid on time
+Apple Watch 2: 500MB, 0 talk minutes, 50 text messages, paid on time
+
+August:
+
+iPhone 1: 6GB, 300 talk minutes, 700 text messages, paid on time
+iPhone 2: 2GB, 50 talk minutes, 200 text messages, paid on time
+iPhone 3: 4GB, 50 talk minutes, 100 text messages, paid on time
+iPad: 2GB, 50 talk minutes, 0 text messages, paid on time
+Apple Watch 1: 350MB, 0 talk minutes, 35 text messages, paid on time
+Apple Watch 2: 350MB, 0 talk minutes, 35 text messages, paid on time
+
+
+December:
+
+iPhone 1: 4 GBs, 200 talk minutes, 400 text messages, paid on time
+iPhone 2: 3 GBs, 150 talk minutes, 300 text messages, paid on time
+iPhone 3: 3 GBs, 150 talk minutes, 300 text messages, paid on time
+iPad: 2 GBs, 50 talk minutes, 100 text messages, paid on time
+Apple Watch 1: 500MB, 0 talk minutes, 50 text messages, paid on time
+Apple Watch 2: 500MB, 0 talk minutes, 50 text messages, paid on time
+
+Time of account: 4 years
+
+Payment History: Customer on Autopay, credit card expiration: 3/15/2023
+
+Device upgrade cycle: 
+
+iPhone 1: due for upgrade in 6 months
+iPhone 2: due for upgrade in 8 months
+iPhone 3: due for upgrade in 9 months
+iPad: due for upgrade in 15 months
+Apple Watch 1: due for upgrade in 4 months
+Apple Watch 2: due for upgrade in 2 months
+ 
+Customer NPS on last survey: 8
+
+Lost connectivity in the past:  No lost connectivity complaints in the last 12 months
+
+Tower pings (option 1): 
+1.	iPhone 1: repeated pattern of pings from three locations (Heath, TX, 75032; Rockwall, TX, 75087; Dallas, TX, 75202) 
+2.	iPhone 2: repeated pattern of pings from three locations (Heath, TX, 75032; Mesquite, TX, 75150; Rockwall, TX, 75087)
+3.	iPhone 3: repeated pattern of pings from one location (Heath, TX, 75032)
+4.	iPad: repeated pattern of pings from one location (Heath, TX, 75032)
+5.	Apple Watch 1: repeated pattern of pings from three locations (Heath, TX, 75032; Rockwall, TX, 75087; Dallas, TX, 75202) 
+6.	Apple Watch 2: repeated pattern of pings from three locations (Heath, TX, 75032; Mesquite, TX, 75150; Rockwall, TX, 75087)
+
+
+Tower pings (option 2): 
+
+
+
+
+Past complaints and type:
+
+1.	Jan 24,2023: Call on unusual charges on bill. Determined customer’s child made in-app purchases without customer’s consent. Representative reversed charges due to customer’s good standing and loyalty.
+2.	Jan 12,2023: Customer experienced a few call drops in the day from Rockwall location. Customer representative resolved the complaint by clarifying that tower in the area was undergoing a repair and service should be restored fully within an hour. 
+
+
+TV Subscriptions:
+
+1.	Disney+
+2.	ESPN
+3.	TV provider unknown (not AT&T)
+
+
+Purchased marketing data:
+
+1.	From Google:
+a.	Webpages visited in the last 2 weeks:
+i.	"Best TV and Internet Bundles for 2023" 
+ii.	"The Ultimate Guide to Finding the Perfect TV Bundle" 
+iii.	"Compare TV and Internet Bundles from Top Providers" 
+iv.	"How to Negotiate a Better Deal on Your TV Bundle" 
+v.	"The Top TV Channels Included in Bundles for Sports Fans" 
+vi.	"Understanding the Hidden Fees in TV and Internet Bundles" 
+vii.	"Reviews of the Best TV Bundles for Cord-Cutters" 
+viii.	"How to Build Your Own Custom TV Bundle" 
+ix.	https://www.marketingprofs.com/
+x.	https://www.hubspot.com/marketing-statistics
+xi.	https://www.marketingcharts.com/
+
+
+
+AT&T Product details:
+
+1.	Mobile services:
+a.	AT&T Wireless: Offers postpaid and prepaid wireless plans with varying amounts of data, talk, and text. They also offer unlimited data plans with various features like 5G access and international perks.
+i.	AT&T Unlimited Premium Plan: $50/mo. Per line when you get 4 lines. Unlimited talk, text, & high-speed data that can’t slow down based on how much you use
+ii.	AT&T Unlimited Extra Plan: $40/mo. Per line when you get 4 lines. Unlimited talk, text, data + 50GB of Premium Data. After 50GB, AT&T may temporarily slow data speeds if the network is busy
+iii.	AT&T Unlimited Starter Plan: $35/mo. Per line when you get 4 lines. Unlimited talk, text & data. AT&T may temporarily slow data speeds if the network is busy
+b.	AT&T Business: Offers mobile plans and devices for businesses and organizations of all sizes, including unlimited plans and data-only plans.
+i.	AT&T Business Unlimited Elite: $40/mo. Plus tax per line when you get 6+ lines
+1.	Unlimited domestic data, talk & text
+
+5.	High-definition (HD) video streaming
+6.	Unlimited talk & text to Mexico and Canada5, and unlimited text from the U.S. to over 200 countries.
+iii.	AT&T Business Unlimited Starter: $30/mo. Plus tax per line when you get 6+ lines
+1.	Unlimited domestic data, talk & text
+2.	Access to the AT&T 5G nationwide network
+3.	5GB mobile hotspot data per line for compatible devices
+4.	AT&T ActiveArmorSM advanced mobile security
+5.	Standard-definition (HD) video streaming
+6.	Unlimited talk & text to Mexico and Canada5, and unlimited text from the U.S. to over 200 countries.
+
+2.	Internet services:
+a.	AT&T Internet: Offers high-speed internet for residential customers, including fiber internet, DSL, and fixed wireless internet in select areas.
+i.	300Mbps: $55/mo. Plus taxes
+ii.	500Mbps: $65/mo. Plus taxes
+iii.	1 GIG speed: $80/mo. Plus taxes
+iv.	2 GIG speed: $110/mo. Plus taxes
+v.	5 GIG speed: $180/mo. Plus taxes
+
+3.	TV services:
+a.	DIRECTV: Offers satellite TV service with packages that include hundreds of channels, DVR capabilities, and premium channels like HBO and Cinemax.
+i.	DIRECTV SATELLITE: Starting at $64.99/mo. + tax & fees for 24-mo.
+1.	Whole-home HD DVR included at no extra cost
+
+a.	AT&T Phone: Offers digital home phone service with features like voicemail, call waiting, and caller ID.
+i.	PHONE UNLIMITED NORTH AMERICA: $24.99/mo. For 12 mos. Plus taxes & fees
+1.	Unlimited nationwide calling within the U.S. and to Canada, Mexico, Puerto Rico, the U.S. Virgin Islands, Guam, and the Northern Marianas.
+2.	Calls to other countries at additional per-minute.
+
+ii.	PHONE INTERNATIONAL PLUS II: $34.99/mo. For 12 mos. Plus taxes & fees
+1.	Unlimited calling to over 50 countries including Canada and Mexico; unlimited nationwide calling within the United States, Puerto Rico, U.S. Virgin Islands, Guam and the Northern Marianas.
+2.	Low international rates to many other countries.
+
+
+b.	AT&T Wireless Home Phone and Internet: Provides wireless home phone service with internet access, allowing customers to use their home phone and internet without a traditional landline.
+i.	PHONE + INTERNET: $79.99 /mo. for 12 mos., plus taxes & fees
+1.	Fast online speeds for the whole family
+2.	Digital phone with unlimited nationwide calling
+
+ii.	PHONE + INTERNET + DIRECTV: $79.99 /mo. for 12 mos., plus taxes & fees
+1.	DIRECTV ENTERTAINMENT package
+2.	Live TV, 40,000+ on-demand titles, and 20 hours of cloud DVR storage1
+3.	Fast online speeds for the whole family
+4.	Digital phone with unlimited nationwide calling
+
+
+5.	Special bundles:
+a.	AT&T FIBER | 300MBPS: $55 /mo. plus taxes & fees
+i.	300Mbps speeds
+ii.	Strong, fast Wi-Fi to work and play throughout your home1
+iii.	Consistent speed, even at peak times2
+iv.	Get a price you’ll love and the reliability you deserve
+b.	AT&T FIBER | 300 MBPS + DIRECTV STREAM ENTERTAINMENT PACKAGE: $129.99 /mo. plus taxes & fees
+i.	300Mbps speeds
+ii.	Strong, fast Wi-Fi to work and play throughout your home
+iii.	Live TV, 40,000+ on-demand titles, and 20 hours of cloud DVR storage
+iv.	Make it unlimited hours of cloud DVR for $10/mo.
+v.	HBO Max™, SHOWTIME®, STARZ®, MGM+™ and Cinemax® included for first 3 months⁴
+vi.	Then HBO Max $14.99/mo., SHOWTIME $11/mo., STARZ $11/mo., MGM+ $6/mo., and Cinemax $11/mo., (subject to change) thereafter until canceled. Req’s you to select offer.
+c.	AT&T FIBER | 300 MBPS + DIRECTV STREAM CHOICE PACKAGE: $154.99 /mo. plus taxes & fees
+i.	300Mbps speeds
+ii.	Strong, fast Wi-Fi to work and play throughout your home
+iii.	Live TV, 45,000+ on-demand titles, and regional sports networks. Includes 20 hours of cloud DVR storage
+iv.	HBO Max™, SHOWTIME®, STARZ®, MGM+™ and Cinemax® included for first 3 months⁴
+v.	Then HBO Max $14.99/mo., SHOWTIME $11/mo., STARZ $11/mo., MGM+ $6/mo., and Cinemax $11/mo., (subject to change) thereafter until canceled. Req’s you to select offer.
