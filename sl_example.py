@@ -5,10 +5,13 @@ import os
 import openai
 from pathlib import Path
 from io import StringIO
+import textwrap
+import nltk
+
 
 
 st.set_page_config(
-    page_title="Streamlit Chat - Demo",
+    page_title="Telco chat-bot demo",
     page_icon=":robot:"
 )
 
@@ -32,11 +35,22 @@ if 'past' not in st.session_state:
 
 
 uploaded_file = st.file_uploader("Choose a file")
+
 if uploaded_file is not None:
     #bd_chat_lines_context = uploaded_file.read_text("UTF-8")
     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
     bd_chat_lines_context = stringio.getvalue()
-    #st.write(stringio)
+    tokens = bd_chat_lines_context.split()
+    print(len(tokens))
+    if len(tokens) > 2000:
+        st.write('Document token exceeds limit, truncating....')
+        tokens = tokens[:2000]
+        
+        bd_chat_lines_context = ' '.join(tokens)
+
+    
+    with st.expander("See Tranucated ouptut"):
+        st.write(bd_chat_lines_context)
 
 
 def query(prompt):
