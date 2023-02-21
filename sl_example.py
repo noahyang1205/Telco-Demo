@@ -4,19 +4,18 @@ import requests
 import os
 import openai
 from pathlib import Path
+from io import StringIO
+
 
 st.set_page_config(
     page_title="Streamlit Chat - Demo",
     page_icon=":robot:"
 )
 
-#API_URL = "https://api-inference.huggingface.co/models/facebook/blenderbot-400M-distill"
-#headers = {"Authorization": st.secrets['api_key']}
 
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 st.header("Sarah Smith's Chat Log")
-#st.markdown("[Github](https://github.com/ai-yash/st-chat)")
 
 if 'generated' not in st.session_state:
     st.session_state['generated'] = []
@@ -31,10 +30,17 @@ if 'past' not in st.session_state:
 # 	return response.json()
 ###############################################################
 
+
+uploaded_file = st.file_uploader("Choose a file")
+if uploaded_file is not None:
+    #bd_chat_lines_context = uploaded_file.read_text("UTF-8")
+    stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+    bd_chat_lines_context = stringio.getvalue()
+    #st.write(stringio)
+
+
 def query(prompt):
-    # print(prompt)
-    # print(type(prompt))
-    bd_chat_lines_context = Path('context.txt').read_text("UTF-8")
+        
     #query = 'Why should I choose AT&T'
     #print(prompt['inputs']['text'])
     openAI_prompt = bd_chat_lines_context + "\n" + prompt['inputs']['text'] + "\n"
