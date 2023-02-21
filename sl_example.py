@@ -1,12 +1,9 @@
 import streamlit as st
 from streamlit_chat import message
-import requests
 import os
 import openai
 from pathlib import Path
 from io import StringIO
-import textwrap
-import nltk
 
 
 
