@@ -4,7 +4,7 @@ import os
 import openai
 from pathlib import Path
 from io import StringIO
-
+from pathlib import Path
 
 
 st.set_page_config(
@@ -35,7 +35,10 @@ uploaded_file = st.file_uploader("Choose a file")
 
 bd_chat_lines_context = ''
 
-if uploaded_file is not None:
+if uploaded_file is None:
+    bd_chat_lines_context = Path('context.txt').read_text("UTF-8")
+    st.write('No context file uploaded, defaulting to Sarah Smith')
+else:
     #bd_chat_lines_context = uploaded_file.read_text("UTF-8")
     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
     bd_chat_lines_context = stringio.getvalue()
