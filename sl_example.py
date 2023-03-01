@@ -33,6 +33,8 @@ if 'past' not in st.session_state:
 
 uploaded_file = st.file_uploader("Choose a file")
 
+bd_chat_lines_context = ''
+
 if uploaded_file is not None:
     #bd_chat_lines_context = uploaded_file.read_text("UTF-8")
     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
