@@ -37,6 +37,7 @@ bd_chat_lines_context = ''
 
 if uploaded_file is None:
     bd_chat_lines_context = Path('context.txt').read_text("UTF-8")
+    tokens = bd_chat_lines_context.split()
     st.write('No context file uploaded, defaulting to Sarah Smith')
 else:
     #bd_chat_lines_context = uploaded_file.read_text("UTF-8")
@@ -44,19 +45,20 @@ else:
     bd_chat_lines_context = stringio.getvalue()
     tokens = bd_chat_lines_context.split()
     print(len(tokens))
-    if len(tokens) > 2000:
-        st.write('Document token exceeds limit, truncating....')
-        tokens = tokens[:2000]
+if len(tokens) > 900:
+    st.write('Document token exceeds limit, truncating....')
+    tokens = tokens[:900]
         
-        bd_chat_lines_context = ' '.join(tokens)
+    bd_chat_lines_context = ''.join(tokens)
 
     
-    with st.expander("See Tranucated ouptut"):
-        st.write(bd_chat_lines_context)
+with st.expander("See Tranucated ouptut"):
+    st.write(bd_chat_lines_context)
 
 
 option = st.selectbox('Fine-tune model?',('No fine-tune', 'Fine-tuned'))
 
+print(len(tokens))
 
 
 def query(prompt):
