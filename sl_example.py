@@ -55,6 +55,10 @@ else:
         st.write(bd_chat_lines_context)
 
 
+option = st.selectbox('Fine-tune model?',('No fine-tune', 'Fine-tuned'))
+
+
+
 def query(prompt):
         
     #query = 'Why should I choose AT&T'
@@ -62,17 +66,32 @@ def query(prompt):
     openAI_prompt = bd_chat_lines_context + "\n" + prompt['inputs']['text'] + "\n"
     
     #print(prompt)
-    response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt=openAI_prompt,
-        temperature=0.0,
-        max_tokens=512,
-        top_p=1,
-        frequency_penalty=0,
-        presence_penalty=0,
-        stop=["Q:"],
-        timeout=20
-    )
+    
+    if option == 'No fine-tune':
+        response = openai.Completion.create(
+            model="text-davinci-003",
+            prompt=openAI_prompt,
+            temperature=0.0,
+            max_tokens=511,
+            top_p=1,
+            frequency_penalty=0,
+            presence_penalty=0,
+            stop=["Q:"],
+            timeout=20
+        )
+    elif 'Fine-tuned':
+        response = openai.Completion.create(
+            model="ada:ft-bain-data-science-2023-03-02-00-53-43",
+            prompt=openAI_prompt,
+            temperature=0.0,
+            max_tokens=511,
+            top_p=1,
+            frequency_penalty=0,
+            presence_penalty=0,
+            stop=["Q:"],
+            timeout=20
+        )
+
     response_text = response["choices"][0]["text"]
     response_text = response_text.replace("A:", "")
     response_text = response_text.replace("\n", "")
@@ -83,7 +102,7 @@ def query(prompt):
 
 
 def get_text():
-    input_text = st.text_input("You: ", key="input")
+    input_text = st.text_input("Enter Text here: ", key="input")
     return input_text 
 
 
