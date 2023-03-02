@@ -27,8 +27,8 @@ if 'past' not in st.session_state:
 img = iio.imread('./assets/logo.png')
 st.sidebar.image(image=img)
 st.sidebar.markdown("# Chat-bot parameters")
-st.sidebar.write("## Upload Context File")
-uploaded_file = st.sidebar.file_uploader("Choose a context file")
+#st.sidebar.write("## Upload Context File")
+uploaded_file = st.sidebar.file_uploader("Upload context file")
 
 bd_chat_lines_context = ''
 
@@ -55,12 +55,15 @@ else:
 expander = st.sidebar.expander("See uploaded context")
 expander.write(bd_chat_lines_context)
 
-st.sidebar.write('## Model Fine-tuning?')
+#st.sidebar.write('## ')
 
 ft_model_name, non_ft_model_name ='Fine-tuned model: ada:ft-bain-data-science-2023-03-02-00-53-43', 'Non-fine-tuned model: text-davinci-003'
 
-option = st.sidebar.selectbox('',(non_ft_model_name,ft_model_name),index=0)
+option = st.sidebar.selectbox('Select models',(non_ft_model_name,ft_model_name),index=0)
 print(option)
+
+temperature = st.sidebar.slider(label='Model temperature',min_value=0.0, max_value=1.0, step=0.01, value=0.0)
+
 def query(prompt):
         
     openAI_prompt = bd_chat_lines_context + "\n" + prompt['inputs']['text'] + "\n"
@@ -70,7 +73,7 @@ def query(prompt):
         response = openai.Completion.create(
             model="text-davinci-003",
             prompt=openAI_prompt,
-            temperature=0.0,
+            temperature=temperature,
             max_tokens=511,
             top_p=1,
             frequency_penalty=1.33,
@@ -83,7 +86,7 @@ def query(prompt):
         response = openai.Completion.create(
             model="ada:ft-bain-data-science-2023-03-02-00-53-43",
             prompt=openAI_prompt,
-            temperature=0.0,
+            temperature=temperature,
             max_tokens=511,
             top_p=1,
             frequency_penalty=0,
