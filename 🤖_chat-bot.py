@@ -15,7 +15,7 @@ st.set_page_config(
 
 
 
-add_logo("./assets/logo.png")
+#add_logo("./assets/logo.png")
 
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
