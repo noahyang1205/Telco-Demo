@@ -1,0 +1,30 @@
+
+Name: Bob Smith
+
+Age: 56
+
+Location: Cleveland, OH
+
+Phone Plan: Unlimited Data Plan
+
+Monthly Fees: $90
+
+Data: Unlimited
+
+Text: Unlimited
+
+Voice Calls: Unlimited
+
+Streaming: Unlimited
+
+Roaming: Yes
+
+International: Yes
+
+Data Speed: Up to 100 Mbps
+
+Network: 4G LTE
+
+Device: Samsung Galaxy S9+
+
+Additional Features: Hotspot Included, Multi-Line Discounts, Up to 22 GB of High-Speed Mobile Hotspot Data

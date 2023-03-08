@@ -15,7 +15,7 @@ st.set_page_config(
 
 
 
-#add_logo("./assets/logo.png")
+#`add_logo("./assets/logo.png")
 
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
@@ -31,33 +31,26 @@ if 'past' not in st.session_state:
 img = iio.imread('./assets/logo.png')
 st.sidebar.image(image=img)
 st.sidebar.markdown("# Chat-bot parameters")
+
+profile_selection = st.sidebar.selectbox('Select user profile',(os.listdir('user_profiles')),index=0)
+
+expander = st.sidebar.expander("See user profile details")
+profile_data = Path(os.path.join('./user_profiles', profile_selection)).read_text("UTF-8")
+expander.write(profile_data)
+
+policy_data = Path(os.path.join('policy.txt')).read_text("UTF-8")
+expander = st.sidebar.expander("See policy")
+expander.write(policy_data)
+
+
+assistant_context = 'You are respectful, welcoming, kind, understanding, professional, truthful, honest. You are an AT&T customer support AI assistant. Your goal is to answer my questions as accurately as possible and use customer profile data and policy data I provide to help answer them. Do not make up facts or answer questions outside of the scope of customer support. If you are not sure about a question, refer the customer to AT&T website or call the AT&T customer support'
+
+bd_chat_lines_context = assistant_context + profile_data + policy_data
+
+
+
 #st.sidebar.write("## Upload Context File")
-uploaded_file = st.sidebar.file_uploader("Upload context file")
 
-bd_chat_lines_context = ''
-
-if uploaded_file is None: # If no context file is provided, defaults to using the context file in directory
-    bd_chat_lines_context = Path('./context.txt').read_text("UTF-8")
-    tokens = bd_chat_lines_context.split()
-    if len(tokens) > 900:
-        st.sidebar.write('Document token exceeds limit, truncating....')
-        tokens = tokens[:900]      
-    bd_chat_lines_context = ''.join(tokens)
-    
-    st.sidebar.write('No context file uploaded, defaulting to Sarah Smith')
-else: 
-    stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-    bd_chat_lines_context = stringio.getvalue()
-    tokens = bd_chat_lines_context.split()
-    
-    print(len(tokens))
-    if len(tokens) > 900:
-        st.sidebar.write('Document token exceeds limit, truncating....')
-        tokens = tokens[:900]      
-    bd_chat_lines_context = ''.join(tokens)
-
-expander = st.sidebar.expander("See uploaded context")
-expander.write(bd_chat_lines_context)
 
 #st.sidebar.write('## ')
 
@@ -140,4 +133,29 @@ if st.session_state['generated']:
         message(st.session_state["generated"][i], key=str(i))
         message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
 
-        
+# uploaded_file = st.sidebar.file_uploader("Upload context file")
+
+# bd_chat_lines_context = ''
+
+# if uploaded_file is None: # If no context file is provided, defaults to using the context file in directory
+#     bd_chat_lines_context = Path('./context.txt').read_text("UTF-8")
+#     tokens = bd_chat_lines_context.split()
+#     if len(tokens) > 900:
+#         st.sidebar.write('Document token exceeds limit, truncating....')
+#         tokens = tokens[:900]      
+#     bd_chat_lines_context = ''.join(tokens)
+    
+#     st.sidebar.write('No context file uploaded, defaulting to Sarah Smith')
+# else: 
+#     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+#     bd_chat_lines_context = stringio.getvalue()
+#     tokens = bd_chat_lines_context.split()
+    
+#     print(len(tokens))
+#     if len(tokens) > 900:
+#         st.sidebar.write('Document token exceeds limit, truncating....')
+#         tokens = tokens[:900]      
+#     bd_chat_lines_context = ''.join(tokens)
+
+# expander = st.sidebar.expander("See uploaded context")
+# expander.write(bd_chat_lines_context)

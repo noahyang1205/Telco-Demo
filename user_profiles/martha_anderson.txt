@@ -1,0 +1,35 @@
+Name: Martha Anderson
+
+Age: 22
+
+Address: 1312 Mapleview Ln, Los Angeles, CA 90025
+
+Phone Number: (323) 555-2526
+Plan: Student Plan
+Monthly Data Usage:
+
+-Text Messages: 6,000
+
+-Voice Calls: 300 Minutes
+
+-Data: 5GB
+
+-International Calls: 100 Minutes 
+
+-Roaming: 5GB 
+
+Other Services:
+
+-Caller ID: Yes 
+
+-Voicemail: Yes 
+
+-Visual Voicemail: Yes 
+
+-International Texts: Yes 
+
+-International Roaming: Yes
+
+-Mobile Hotspot: Yes 
+
+Device: iPhone 8 Plus

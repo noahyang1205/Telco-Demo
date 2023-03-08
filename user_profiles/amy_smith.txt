@@ -1,0 +1,45 @@
+Name: Amy Smith
+
+Age: 34
+
+Location: Los Angeles, CA
+
+Gender: Female
+
+Occupation: Marketing Manager
+
+Phone: iPhone X
+
+Data Plan: AT&T (Unlimited Talk & Text Plan)
+
+Mobile Usage:
+
+- Average App Usage: 5 Hours/Day
+
+- Average Talk Time: 30 Minutes/Day
+
+- Average Texts Sent: 50/Day
+
+- Average Data Usage: 8GB/Month
+
+- Average Mobile Purchases: $150/Month
+
+- Average App Download Rate: 1/Week
+
+- Average Number of Installed Games: 4
+
+- Average Number of Social Media Accounts: 5
+
+- Types of Apps most often used: Social Media, Shopping, News, and Weather
+
+Interests:
+
+- Shopping
+
+- Travel
+
+- Music
+
+- Technology
+
+
