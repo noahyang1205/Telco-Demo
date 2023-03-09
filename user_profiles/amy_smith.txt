@@ -1,45 +1,19 @@
 Name: Amy Smith
 
-Age: 34
-
-Location: Los Angeles, CA
+Age: 24
 
 Gender: Female
 
-Occupation: Marketing Manager
+Address: 123 Park Drive, Los Angeles, CA
 
-Phone: iPhone X
+Family Status: Single
 
-Data Plan: AT&T (Unlimited Talk & Text Plan)
+Phone Number: 323-555-4236
 
-Mobile Usage:
+Occupation: TV Producer
 
-- Average App Usage: 5 Hours/Day
+Mobile Device Usage: Uses a Samsung Galaxy S9 Plus which he uses for texting, web browsing, and watching videos.
 
-- Average Talk Time: 30 Minutes/Day
+Plan: Small Data Plan
 
-- Average Texts Sent: 50/Day
-
-- Average Data Usage: 8GB/Month
-
-- Average Mobile Purchases: $150/Month
-
-- Average App Download Rate: 1/Week
-
-- Average Number of Installed Games: 4
-
-- Average Number of Social Media Accounts: 5
-
-- Types of Apps most often used: Social Media, Shopping, News, and Weather
-
-Interests:
-
-- Shopping
-
-- Travel
-
-- Music
-
-- Technology
-
-
+Comments: Amy uses more than 5GB of data per month and gets charged for the extra data she uses. 

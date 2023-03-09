@@ -1,29 +1,9 @@
 Name: Mary Johnson
-
+Age:25
 Gender: Female
-
-Age: 37
-
-Address: 123 Main Street, Anytown, USA
-
-Phone Number: (555) 555-1234
-
-Email Address: mjohnson@example.com
-
-Wireless Plan: Family Plan currently with 4 lines
-
-Data Cap: Unlimited
-
-Total Data Usage (last billing cycle): 24 GB
-
-Voice Minutes Used (last billing cycle): 525 minutes
-
-Text Messages Used (last billing cycle): 1,000 messages
-
-International Calling Plan: AT&T Global Plus
-
-Roaming Charges Last Billing Cycle: $15
-
-Phone Number of Primary Contact: (555) 555-4321
-
-Type of Device: iPhone 11 Pro
+Address: 396 Monroe Ave., New York, NY 19931
+Family Status: Single
+Phone Number: (123) 456-7890
+Occupation: Unemployed
+Mobile Device Usage: Samsung Galaxy S10; Uses social media, video streaming, and gaming apps
+Plan: Talk & Text Plan

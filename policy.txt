@@ -1,18 +1,18 @@
 
 AT&T wireless plans
-1. Unlimited Talk & Text Plan: Unlimited talk and text for $50 per month with 10GB of data.
+1. Unlimited Data Plan:  Unlimited talk, text and unlimited data for $90 per month.
 
 2. Small Data Plan: 5GB of data for $30 per month. Ideal for customer who don't use a lot of data.
 
-3. Family Plan: 4 lines with unlimited talk and text and 10GB of shared data for $150 per month. Additional line is $30 per month
+3. Family Plan: 4 lines with unlimited talk and text and 100GB of shared data for $150 per month. Additional line is $30 per month
 
 4. International Plan: Unlimited talk and text and 2GB of data for $70 per month, plus an additional $10 per month for international calling.
 
-5. Senior Plan: Unlimited talk and text and 5GB of data for $40 per month. Customer under 70 not eligible
+5. Senior Plan: Unlimited talk and text and 5GB of data for $40 per month. Customer under 70 years old are not eligible
 
-6. Student Plan: Unlimited talk and text and 10GB of data for $50 per month.
+6. Student Plan: Unlimited talk and text and 10GB of data for $50 per month. Only current student eligible, valid student ID required
 
-7. Unlimited Data Plan: Unlimited talk and text and unlimited data for $90 per month.
+7. Talk and Text Plan: Unlimited talk and text for $50 per month with 10GB of data.
 
 8. Prepaid Plan: Pay as you go with no contract and no monthly fee. Pay for what you use.
 
@@ -26,11 +26,11 @@ AT&T promotion
 
 4. $500 credit to customers who switch to the AT&T from another carrier. Current AT&T customer not eligible 
 
-5. Provide a free phone or tablet with the purchase of a two-year contract. Limited only to unlimited plan customers
+5. Provide a free phone or tablet with the purchase of a new phone. Only Unlimited Data Plan customers are eligible for this promotion
 
 6. Offer a free month of service for customers who pay their bill on time for six month bundle. 
 
-7. Offer $50 credit if bundle with directTV. Limited only to family plan customers
+7. Offer $50 credit if bundle with directTV.Only current family plan customers are eligible for this promotion
 
 8. Provide a free month of service for customers who purchase a new iphone 14 from the AT&T.
 

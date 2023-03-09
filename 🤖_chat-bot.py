@@ -32,11 +32,34 @@ img = iio.imread('./assets/logo.png')
 st.sidebar.image(image=img)
 st.sidebar.markdown("# Chat-bot parameters")
 
-profile_selection = st.sidebar.selectbox('Select user profile',(os.listdir('user_profiles')),index=0)
+preset_profiles = os.listdir('user_profiles')
+print(type(preset_profiles))
+preset_profiles.append('Customized profile')
+print(preset_profiles)
+profile_selection = st.sidebar.selectbox('Select user profile',(preset_profiles),index=0)
 
-expander = st.sidebar.expander("See user profile details")
-profile_data = Path(os.path.join('./user_profiles', profile_selection)).read_text("UTF-8")
-expander.write(profile_data)
+
+if profile_selection == 'Customized profile':
+    expander = st.sidebar.expander("Customize Profile")
+    cp_name = st.sidebar.text_input('Profile name', 'Brian Anderson')
+    cp_age = st.sidebar.slider(label='Profile Age',min_value=18, max_value=99, step=1, value=25)
+    cp_address = st.sidebar.text_input('Profile Address', '123 Cherry St, Seattle, WA')
+    cp_family = st.sidebar.selectbox('Profile family Status', ('Single', 'Married, No children', 'Married, With children'))
+    cp_phone = st.sidebar.text_input('Profile phone number', '(245) 345-3456')
+    cp_occupation = st.sidebar.text_input('Profile occupation', 'Teacher')
+    cp_plan = st.sidebar.selectbox('Profile Plan', ('Unlimited Data Plan', 'Small Data Plan', 'Family Plan', 'International Plan', 'Senior Plan', 'Student Plan', 'Talk and Text Plan', 'Prepaid Plan'))
+    cp_comments = st.sidebar.text_input('Additional Comments', '')
+    
+    
+    profile_data = "\n".join(['Name: '+cp_name, "Current plan: "+cp_plan, "Age: "+str(cp_age), "Address: "+cp_address, "Family Status: "+cp_family, "Phone Number: "+cp_phone, "Occupation: "+cp_occupation, 'Additional comments: '+cp_comments])
+    expander.write(profile_data)
+
+    
+
+else:
+    expander = st.sidebar.expander("See user profile details")
+    profile_data = Path(os.path.join('./user_profiles', profile_selection)).read_text("UTF-8")
+    expander.write(profile_data)
 
 policy_data = Path(os.path.join('policy.txt')).read_text("UTF-8")
 expander = st.sidebar.expander("See policy")

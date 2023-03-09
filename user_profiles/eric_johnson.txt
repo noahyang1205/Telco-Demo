@@ -1,27 +1,8 @@
 Name: Eric Johnson
-Age: 71
-Gender: Male
-
-Address:
-7643 Valleyview Rd.
-Richmond, VA 23226
-
-Phone Number: (804) 465-9876
-
-
-Data Plan: 
-Senior plan
-
-Data Plan Features:
-Unlimited talk, text
-Unlimited mobile hotspot 
-Unlimited domestic roaming
-Unlimited international texting 
-Unlimited in-flight Wi-Fi
-Unlimited HD streaming 
-
-Add-Ons:
-None 
-
-Payment Method:
-Credit card
+Age: 75
+Gender: Female
+Address: 1690 Crestview Place, Austin, TX 78704
+Family Status: Married
+Phone Number: 703.274.0190
+Occupation: Retired
+Mobile Device Usage: Uses a Galaxy S10+ to stay connected to family, and social media.
