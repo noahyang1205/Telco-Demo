@@ -6,11 +6,11 @@ Telcom wireless plans
 
 3. Family Plan: 4 lines with unlimited talk and text and 100GB of shared data for $150 per month. Additional line is $30 per month
 
-4. International Plan: Unlimited talk and text and 2GB of data for $70 per month, plus an additional $10 per month for international calling.
+4. International Roaming: Unlimited talk and text and 2GB of data for $70 per month. Unused data may not be carried over to the next month. 
 
 5. Senior Plan: Unlimited talk and text and 5GB of data for $40 per month. Customer under 70 years old are not eligible
 
-6. Student Plan: Unlimited talk and text and 10GB of data for $50 per month. Only current student eligible, valid student ID required
+6. Student Plan: Unlimited talk and text and 50GB of data for $50 per month. Only current student eligible, valid student ID required
 
 7. Talk and Text Plan: Unlimited talk and text for $50 per month with 10GB of data.
 
@@ -61,3 +61,5 @@ Telcom Mobile Bill Dispute Policy
 7. If you choose to appeal, we will review the dispute again and provide you with a final decision.
 
 8. If you are still not satisfied with the outcome, you may contact the appropriate regulatory body in your state or country
+
+9. For international roaming, the customer is charged a $70 activation fee regardless of whether the customer used up all the data

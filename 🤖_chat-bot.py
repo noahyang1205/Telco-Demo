@@ -30,7 +30,8 @@ if 'past' not in st.session_state:
 
 img = iio.imread('./assets/logo.png')
 st.sidebar.image(image=img)
-st.sidebar.markdown("# Chat-bot parameters")
+
+st.sidebar.markdown("# User profile parameters")
 
 preset_profiles = os.listdir('user_profiles')
 print(type(preset_profiles))
@@ -54,8 +55,6 @@ if profile_selection == 'Customized profile':
     profile_data = "\n".join(['Name: '+cp_name, "Current plan: "+cp_plan, "Age: "+str(cp_age), "Address: "+cp_address, "Family Status: "+cp_family, "Phone Number: "+cp_phone, "Occupation: "+cp_occupation, 'Additional comments: '+cp_comments])
     expander.write(profile_data)
 
-    
-
 else:
     expander = st.sidebar.expander("See user profile details")
     profile_data = Path(os.path.join('./user_profiles', profile_selection)).read_text("UTF-8")
@@ -66,9 +65,7 @@ expander = st.sidebar.expander("See policy")
 expander.write(policy_data)
 
 
-assistant_context = 'You are respectful, welcoming, kind, understanding, professional, truthful, honest. You are an Telcom customer support AI assistant. Your goal is to answer my questions as accurately as possible and use customer profile data and policy data I provide to help answer them. Do not make up facts or answer questions outside of the scope of customer support. If you are not sure about a question, refer the customer to Telcom website or call the Telcom customer support'
 
-bd_chat_lines_context = assistant_context + profile_data + policy_data
 
 
 
@@ -76,11 +73,33 @@ bd_chat_lines_context = assistant_context + profile_data + policy_data
 
 
 #st.sidebar.write('## ')
+st.sidebar.markdown("# Chatbot parameters")
 
 ft_model_name, non_ft_model_name, chat_model ='Fine-tuned model: ada:ft-bain-data-science-2023-03-02-00-53-43', 'Non-fine-tuned model: text-davinci-003', "gpt-3.5-turbo"
 
 option = st.sidebar.selectbox('Select models',(non_ft_model_name,ft_model_name),index=0)
 print(option)
+
+attitude = st.sidebar.select_slider(
+    'Select a chatbot attitude',
+    options=['Tight-fisted', 'Neutral', 'Slightly Generous', 'Very Generous'])
+
+if attitude == 'Tight-fisted':
+    attitude_prompt = 'Under no circumstances will you offer any credits to the customer. You will tell the customer explicitly that a customer support chatbot cannot offer any credits'
+elif attitude == 'Neutral':
+    attitude_prompt = 'When the customer asks for credit, refer the customer to a live sales representative'
+elif attitude == 'Slightly Generous':
+    attitude_prompt = 'Offer the customer a $5 credit in a bill dispute situation when asked by the customer. Also offer $30 credit as a retention incentive when the customer wants to terminate his/her plans'
+elif attitude == 'Very Generous':
+    attitude_prompt = 'Offer the customer a $40 credit in a bill dispute situation when asked by the customer. Also offer a free month of service as a retention incentive when the customer wants to terminate his/her plans'
+    
+    
+assistant_context = 'You are respectful, welcoming, kind, understanding, professional, truthful, honest. You are an Telcom customer support AI assistant. Your goal is to answer my questions as accurately as possible and use customer profile data and policy data I provide to help answer them. Do not make up facts or answer questions outside of the scope of customer support. If you are not sure about a question, refer the customer to Telcom website at https://www.Telcom.com or call the Telcom customer support at 1800-Tel-Com. \n'
+assistant_context += attitude_prompt
+bd_chat_lines_context = assistant_context + profile_data + policy_data    
+
+expander = st.sidebar.expander("See chatbot personality")
+expander.write(assistant_context)
 
 temperature = st.sidebar.slider(label='Model temperature',min_value=0.0, max_value=1.0, step=0.01, value=0.0)
 
