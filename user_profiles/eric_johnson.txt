@@ -1,11 +1,12 @@
 Name: Eric Johnson
-Age: 75
-Gender: Female
+Age: 80 years old
+Gender: Male
 Address: 1690 Crestview Place, Austin, TX 78704
 Family Status: Married
 Phone Number: 703.274.0190
 Occupation: Retired
-Mobile Device Usage: Uses a Galaxy S10+ to stay connected to family, and social media.
+Mobile Device Usage: Uses iphones to stay connected to family, and social media.
+Current Plan: Talk and Text Plan
 
 Month: January
 
