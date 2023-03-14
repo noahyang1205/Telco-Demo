@@ -66,7 +66,7 @@ expander = st.sidebar.expander("See policy")
 expander.write(policy_data)
 
 
-assistant_context = 'You are respectful, welcoming, kind, understanding, professional, truthful, honest. You are an AT&T customer support AI assistant. Your goal is to answer my questions as accurately as possible and use customer profile data and policy data I provide to help answer them. Do not make up facts or answer questions outside of the scope of customer support. If you are not sure about a question, refer the customer to AT&T website or call the AT&T customer support'
+assistant_context = 'You are respectful, welcoming, kind, understanding, professional, truthful, honest. You are an Telcom customer support AI assistant. Your goal is to answer my questions as accurately as possible and use customer profile data and policy data I provide to help answer them. Do not make up facts or answer questions outside of the scope of customer support. If you are not sure about a question, refer the customer to Telcom website or call the Telcom customer support'
 
 bd_chat_lines_context = assistant_context + profile_data + policy_data
 
@@ -77,7 +77,7 @@ bd_chat_lines_context = assistant_context + profile_data + policy_data
 
 #st.sidebar.write('## ')
 
-ft_model_name, non_ft_model_name ='Fine-tuned model: ada:ft-bain-data-science-2023-03-02-00-53-43', 'Non-fine-tuned model: text-davinci-003'
+ft_model_name, non_ft_model_name, chat_model ='Fine-tuned model: ada:ft-bain-data-science-2023-03-02-00-53-43', 'Non-fine-tuned model: text-davinci-003', "gpt-3.5-turbo"
 
 option = st.sidebar.selectbox('Select models',(non_ft_model_name,ft_model_name),index=0)
 print(option)
@@ -87,16 +87,28 @@ temperature = st.sidebar.slider(label='Model temperature',min_value=0.0, max_val
 def query(prompt):
         
     openAI_prompt = bd_chat_lines_context + "\n" + prompt['inputs']['text'] + "\n"
-        
-    if option == non_ft_model_name:
+    
+    if option == chat_model:
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            prompt=openAI_prompt,
+            temperature=temperature,
+            max_tokens=512,
+            top_p=1,
+            frequency_penalty=0,
+            presence_penalty=0,
+            stop=["Q:"],
+            timeout=20
+            )
+    elif option == non_ft_model_name:
         print('Non ft model')
         response = openai.Completion.create(
             model="text-davinci-003",
             prompt=openAI_prompt,
             temperature=temperature,
-            max_tokens=511,
+            max_tokens=512,
             top_p=1,
-            frequency_penalty=1.33,
+            frequency_penalty=0,
             presence_penalty=0,
             stop=["Q:"],
             timeout=20
