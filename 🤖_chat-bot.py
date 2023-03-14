@@ -6,6 +6,7 @@ from pathlib import Path
 from io import StringIO
 import imageio as iio
 from streamlit_extras.app_logo import add_logo
+from datetime import date
 
 st.set_page_config(
     page_title="Telco chat-bot demo",
@@ -85,16 +86,17 @@ attitude = st.sidebar.select_slider(
     options=['Tight-fisted', 'Neutral', 'Slightly Generous', 'Very Generous'])
 
 if attitude == 'Tight-fisted':
-    attitude_prompt = 'Under no circumstances will you offer any credits to the customer. You will tell the customer explicitly that a customer support chatbot cannot offer any credits'
+    attitude_prompt = 'Under no circumstances will you offer any credits to the customer. You will tell the customer explicitly that a customer support chatbot cannot offer any credits and Telcom does not have a credit policy'
 elif attitude == 'Neutral':
     attitude_prompt = 'When the customer asks for credit, refer the customer to a live sales representative'
 elif attitude == 'Slightly Generous':
-    attitude_prompt = 'Offer the customer a $5 credit in a bill dispute situation when asked by the customer. Also offer $30 credit as a retention incentive when the customer wants to terminate his/her plans'
+    attitude_prompt = 'Offer the customer a $5 credit in a bill dispute situation when asked by the customer. Offer $30 credit as a retention incentive when the customer wants to terminate his/her plans. Only provide this information when asked by customer'
 elif attitude == 'Very Generous':
-    attitude_prompt = 'Offer the customer a $40 credit in a bill dispute situation when asked by the customer. Also offer a free month of service as a retention incentive when the customer wants to terminate his/her plans'
+    attitude_prompt = 'Offer the customer a $40 credit in a bill dispute situation when asked by the customer. Offer a free month of service as a retention incentive when the customer wants to terminate his/her plans. '
     
-    
-assistant_context = 'You are respectful, welcoming, kind, understanding, professional, truthful, honest. You are an Telcom customer support AI assistant. Your goal is to answer my questions as accurately as possible and use customer profile data and policy data I provide to help answer them. Do not make up facts or answer questions outside of the scope of customer support. If you are not sure about a question, refer the customer to Telcom website at https://www.Telcom.com or call the Telcom customer support at 1800-Tel-Com. \n'
+today = date.today()
+  
+assistant_context = f'You are respectful, welcoming, kind, understanding, professional, truthful, reserved. You are an Telcom customer support AI assistant. Your goal is to answer my questions as accurately as possible and use customer profile data and policy data I provide to help answer them. Do not make up facts or answer questions outside of the scope of customer support. If you are not sure about a question, refer the customer to Telcom website at https://www.Telcom.com or call the Telcom customer support at 1800-Tel-Com. Today is {today}\n'
 assistant_context += attitude_prompt
 bd_chat_lines_context = assistant_context + profile_data + policy_data    
 
