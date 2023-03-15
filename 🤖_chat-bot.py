@@ -38,7 +38,7 @@ preset_profiles = os.listdir('user_profiles')
 print(type(preset_profiles))
 preset_profiles.append('Customized profile')
 print(preset_profiles)
-profile_selection = st.sidebar.selectbox('Select user profile',(preset_profiles),index=2)
+profile_selection = st.sidebar.selectbox('Select user profile',(preset_profiles),index=1)
 
 
 if profile_selection == 'Customized profile':
