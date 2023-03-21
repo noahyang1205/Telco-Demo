@@ -13,11 +13,6 @@ st.set_page_config(
     page_icon=":robot:"
 )
 
-
-
-
-#`add_logo("./assets/logo.png")
-
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 st.header("Telstra Chat Log")
@@ -34,10 +29,9 @@ st.sidebar.image(image=img)
 
 st.sidebar.markdown("# User profile parameters")
 
+# User profile/model parameters on the sidebar
 preset_profiles = os.listdir('user_profiles')
-print(type(preset_profiles))
 preset_profiles.append('Customized profile')
-print(preset_profiles)
 profile_selection = st.sidebar.selectbox('Select user profile',(preset_profiles),index=1)
 
 
@@ -64,14 +58,6 @@ else:
 policy_data = Path(os.path.join('policy.txt')).read_text("UTF-8")
 expander = st.sidebar.expander("See policy")
 expander.write(policy_data)
-
-
-
-
-
-
-#st.sidebar.write("## Upload Context File")
-
 
 #st.sidebar.write('## ')
 st.sidebar.markdown("# Chatbot parameters")
@@ -179,39 +165,16 @@ if user_input:
         st.session_state.generated.append(output["generated_text"])
     except:
         output["generated_text"] = []
- 
-if st.session_state['generated']:
+
+if st.session_state['generated'] and st.session_state["past"]:
     for i in range(len(st.session_state['generated'])-1, -1, -1):
 
-        print(st.session_state["generated"])
-        print(st.session_state["past"])
-        print(i)
+        # print(st.session_state["generated"])
+        # print(st.session_state["past"])
+        # print(i)
         message(st.session_state["generated"][i], key=str(i))
-        message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
-
-# uploaded_file = st.sidebar.file_uploader("Upload context file")
-
-# bd_chat_lines_context = ''
-
-# if uploaded_file is None: # If no context file is provided, defaults to using the context file in directory
-#     bd_chat_lines_context = Path('./context.txt').read_text("UTF-8")
-#     tokens = bd_chat_lines_context.split()
-#     if len(tokens) > 900:
-#         st.sidebar.write('Document token exceeds limit, truncating....')
-#         tokens = tokens[:900]      
-#     bd_chat_lines_context = ''.join(tokens)
-    
-#     st.sidebar.write('No context file uploaded, defaulting to Sarah Smith')
-# else: 
-#     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-#     bd_chat_lines_context = stringio.getvalue()
-#     tokens = bd_chat_lines_context.split()
-    
-#     print(len(tokens))
-#     if len(tokens) > 900:
-#         st.sidebar.write('Document token exceeds limit, truncating....')
-#         tokens = tokens[:900]      
-#     bd_chat_lines_context = ''.join(tokens)
-
-# expander = st.sidebar.expander("See uploaded context")
-# expander.write(bd_chat_lines_context)
+        message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')    
+if len(st.session_state['past']) == 0:
+    print('Past len is zero')
+    st.session_state['generated'] = []
+    st.session_state['past'] = []
