@@ -1,6 +1,6 @@
-First Name,Last Name,Position,Sales play,Company,Company size,Spend last month,Address,City,State,Zipcode,Current products,Product needs,Promotions
-Jack,Smith,IT Manager,Acquisition,Staples,1001-5000,1001-5000,4389 Jackson Ave,Little Rock,Arkansas,72002,-,"BB, Cradlepoint",Free Cradlepoint
-Helen,Jackson,COO,Upsell,AlphaSense,1-10,0-100,9878 Fig Street,Boston,Massachusetts,02108,"BB, Cradlepoint",,50% off SASE upsell
-Jeff,Holland,CEO,Cross-sell,GLG,101-500,501-1000,1908 Glacier Ave,Manhattan,New York,10001,"BB, SASE",,
-Ian,Weber,General Manager,Retain,RocketBlocks,11-100,101-500,8989 Alain Drive,San Francisco,California,94016,BB,BB,50% off retention
-Han,Song,IT Associate,Acquisition,AT&T,5000+,5000+,1893 Bell Ave,Dallas,Texas,75201,-,BB,50% off BB
+First Name,Last Name,Position,Company,Sales play,Company size,Current customer,Current monthly spend,Industry,Address,City,State,Zipcode,Products available (AI generated),Current products,Product needs,Promotions (AI generated),Start date,Contract renewal,Competitive options,Current provider,Usage
+Jack,Smith,IT Manager,Staples,Acquisition,1001-5000,No,N/A,Retail,4389 Jackson Ave,Dallas,Texas,75201,,None,Fiber 5 Gbps,,,,"Verizon, AT&T",Verizon,
+Helen,Jackson,COO,AlphaSense,Upsell,1-10,Yes,$270 ,Software,9878 Fig Street,Dallas,Texas,75202,,Unlimited Starter,Broadband Pro,,1/1/2019,1/1/2024,"Verizon, AT&T",AT&T,
+Jeff,Holland,CEO,GLG,Cross-sell,101-500,Yes,$160 ,Professional services,1908 Glacier Ave,Dallas,Texas,75201,,Fiber 1 Gbps,Phone,,6/1/2017,6/1/2023,"Verizon, AT&T",AT&T,
+Ian,Weber,General Manager,RocketBlocks,Retain,11-100,Yes,$225 ,Software,8989 Alain Drive,Dallas,Texas,75202,,Broadband Ultra,None,,5/1/2022,5/1/2023,"Verizon, AT&T",AT&T,
+Han,Song,IT Associate,Deloitte,Acquisition,5000+,No,N/A,Professional services,1893 Bell Ave,Dallas,Texas,75201,,None,Broadband Ultra,,,,"Verizon, AT&T",Verizon,
