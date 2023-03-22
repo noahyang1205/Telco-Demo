@@ -122,7 +122,7 @@ if st.button('Generate content'):
     
     #print(f'comments: {st.session_state.iter_comments}')
 
-comments = st.text_input('Comments','Add a joke',help='i.e. make it longer')
+comments = st.text_input('Comments','Make it more concise',help='i.e. make it longer')
 st.session_state.comments = comments
         #if response_text: # create iterative button after content is generated       
 if st.button('Iterate Content'):

@@ -1,0 +1,27 @@
+Zipcode	Business Fiber Internet	Broadband
+75201	Yes	Yes
+75202	No	Yes
+75203	No	No
+		
+Rulesets		
+1	Customers can only buy products available in their zipcode	
+2	Unlimited Mobile, Data, and Phone Subcategories are available in all 
+
+zipcodes	
+SKU	Name	Customer type	Description
+1	25% wireless discount	Existing	Existing wireline customers are eligible for a 25% monthly discount on all products in the wireless category provided the product costs at least $65 per month and the customer maintains a wireline connection
+2	$250 wireline reward	New	New wireline customers are eligible for a $250 reward with the purchase of the Fiber 500 Mbps plan
+3	$750 wireline reward	New	New wireline customers are eligible for a $750 reward with the purchase of a Fiber 1 Gbps plan, Fiber 2 Gbps plan, or Fiber 5Gbps plan
+4	Phone bundle	New and existing	New and existing wireline and wireless customers are eligible for a reduced phone rate of $24/month/user; customers must maintain wireless or wireline product to continue receiving the reduced phone rate
+5	$50 reward card	New and existing	All customers who do not have a phone line and who purchase a phone line are eligible for a $50 reward if they already have or also buy a wireline or wireless product
+6	Retention promotion	Leaving	Existing customers who have expiring contracts in next month - offer a 25% discount for their current products for the next year if they have not already received this promotion before
+			
+			
+Rulesets			
+1	All promotions can stack on top of each other		
+2	A customer cannot receive the same promotion more than 1 time		
+
+Rulesets					
+1	A business cannot have 2 products in the same subcategory				
+2	A business cannot have both a product in the Broadband subcategory and the Business Fiber Internet subcategory				
+3	A business cannot have both a product in the Unlimited Mobile subcategory and the Data subcategory				
