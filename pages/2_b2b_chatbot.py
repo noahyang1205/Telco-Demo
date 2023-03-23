@@ -15,7 +15,7 @@ st.set_page_config(
 
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
-st.header("AT&T B2B Agent Chat Log")
+st.markdown("# AT&T B2B Agent Chat Log")
 
 if 'generated' not in st.session_state:
     st.session_state['generated'] = []

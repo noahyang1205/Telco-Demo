@@ -77,7 +77,7 @@ with col2:
     st.markdown("### Model Parameter")
     email_length = st.slider(label='Email Length',min_value=128, max_value=1024, step=1, value=256)
     temperature = st.slider(label='Model temperature',min_value=0.0, max_value=1.0, step=0.01, value=0.5)
-    tone = st.multiselect('Tone',['Professional','Engaging','Humours','Persuasive','Inspirational','Informal'], ['Professional','Engaging'])
+    tone = st.multiselect('Tone',['Professional','Engaging','Persuasive','Inspirational','Informal'], ['Professional','Engaging'])
     n = st.number_input(label='Number of candidate emails to generate',min_value=1)
 
 # convert lists to string for prompting
