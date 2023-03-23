@@ -67,6 +67,7 @@ with col1:
     st.markdown("### Sales Information")
     current_product = st.multiselect('Current products', product_list, row.iloc[0]['Current products'])
     sales_play = st.selectbox('Sales Play', (['Account Acquisition','Upsell', 'Cross-sell', 'Retain']))
+    previous_relationship = st.selectbox('Previous Relationship', (['Personal Connection - Acquaintance','None', 'Professional']), 1)
     likely_product_needs = st.multiselect(
     'Likely Product Needs',
     product_list, row.iloc[0]['Product needs'])
@@ -114,8 +115,6 @@ if st.button('Generate content'):
         response_text = response_text.replace('$', '\$')
         tabs[i-1].write(response_text)
         
-        
-
         
     st.session_state.current_response = response_text
     #if 'iter_comments' not in st.session_state: # store variable in session state so that it persists

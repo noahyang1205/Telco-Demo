@@ -27,22 +27,34 @@ img = iio.imread('./assets/AT&T_logo_2016.svg.png')
 st.sidebar.image(image=img, width=200)
 
 policy_data = Path(os.path.join('./assets/atnt_policy.txt')).read_text("UTF-8")
+account_data = Path(os.path.join('./assets/atnt_account_info.txt')).read_text("UTF-8")
 
 temperature = st.sidebar.slider(label='Model temperature',min_value=0.0, max_value=1.0, step=0.01, value=0.0)
 
-bd_chat_lines_context = f'You are a AT&T B2B agent support assistant with the following AT&T policies {policy_data}'
+
+with st.sidebar.expander("See policy data"):
+    st.text_area('Policy data', policy_data, height=400)
+
+with st.sidebar.expander("See account data"):
+    st.text_area('Account data', account_data, height=400)
+
+
+today = date.today()
+
+bd_chat_lines_context = f'You are a AT&T B2B agent support assistant. Your job is to answer questions using the following AT&T policies: \n """{policy_data}""" and the following account information \n """{account_data}""". Today is {today}'
+print(bd_chat_lines_context)
+
 
 def query(prompt):
         
     openAI_prompt = bd_chat_lines_context + "\n" + prompt['inputs']['text'] + "\n"
-    
     
     print('Non ft model')
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=openAI_prompt,
         temperature=temperature,
-        max_tokens=512,
+        max_tokens=1024,
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0,

@@ -1,13 +1,31 @@
+AT&T B2B Product availability
+
 Zipcode	Business Fiber Internet	Broadband
 75201	Yes	Yes
 75202	No	Yes
 75203	No	No
-		
-Rulesets		
-1	Customers can only buy products available in their zipcode	
-2	Unlimited Mobile, Data, and Phone Subcategories are available in all 
 
-zipcodes	
+
+AT&T B2B Product catalog
+
+SKU	Category	Subcategory	Product Name	Price	Description
+1	Wireless	Unlimited mobile	Unlimited Starter	40/month/user	Unlimited talk, text and data
+2	Wireless	Unlimited mobile	Unlimited Performance	45/month/user	Unlimited talk, text and data; advanced security and video streaming
+3	Wireless	Unlimited mobile	Unlimited Elite	50/month/user	Unlimited talk, text and data; advanced security and video streaming; ability to prioritize business applications
+4	Wireless	Data	Wireless Data 50 GB/month	65/month/user	
+5	Wireless	Data	Wireless Data 100 GB/month	100/month/user	
+6	Wireless	Broadband	Broadband Core	70/month/user	Up to 25 Mbps
+7	Wireless	Broadband	Broadband Pro	80/month/user	Up to 50 Mbps
+8	Wireless	Broadband	Broadband Ultra	100/month/user	Up to 100 Mbps
+9	Wireline	Business Fiber Internet	Fiber 300 Mbps	75/month	
+10	Wireline	Business Fiber Internet	Fiber 500 Mbps	115/month	
+11	Wireline	Business Fiber Internet	Fiber 1 Gbps	160/month	
+12	Wireline	Business Fiber Internet	Fiber 2 Gbps	225/month	
+13	Wireline	Business Fiber Internet	Fiber 5 Gbps	395/month	
+14	Phone	Business Phone	Phone	50/month/user	
+
+		
+AT&T B2B Promotion catalog
 SKU	Name	Customer type	Description
 1	25% wireless discount	Existing	Existing wireline customers are eligible for a 25% monthly discount on all products in the wireless category provided the product costs at least $65 per month and the customer maintains a wireline connection
 2	$250 wireline reward	New	New wireline customers are eligible for a $250 reward with the purchase of the Fiber 500 Mbps plan
@@ -15,13 +33,13 @@ SKU	Name	Customer type	Description
 4	Phone bundle	New and existing	New and existing wireline and wireless customers are eligible for a reduced phone rate of $24/month/user; customers must maintain wireless or wireline product to continue receiving the reduced phone rate
 5	$50 reward card	New and existing	All customers who do not have a phone line and who purchase a phone line are eligible for a $50 reward if they already have or also buy a wireline or wireless product
 6	Retention promotion	Leaving	Existing customers who have expiring contracts in next month - offer a 25% discount for their current products for the next year if they have not already received this promotion before
-			
-			
+
+
 Rulesets			
 1	All promotions can stack on top of each other		
 2	A customer cannot receive the same promotion more than 1 time		
-
-Rulesets					
-1	A business cannot have 2 products in the same subcategory				
-2	A business cannot have both a product in the Broadband subcategory and the Business Fiber Internet subcategory				
-3	A business cannot have both a product in the Unlimited Mobile subcategory and the Data subcategory				
+3	Customers can only buy products available in their zipcode	
+4	Unlimited Mobile, Data, and Phone Subcategories are available in all zipcodes					
+5	A business cannot have 2 products in the same subcategory				
+6	A business cannot have both a product in the Broadband subcategory and the Business Fiber Internet subcategory				
+7	A business cannot have both a product in the Unlimited Mobile subcategory and the Data subcategory				
