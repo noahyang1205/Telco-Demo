@@ -6,6 +6,7 @@ import openai
 import os
 import pandas as pd
 
+st.set_page_config(layout="wide")
 if 'past_response' not in st.session_state:
     st.session_state.past_response = ''
 if 'current_response' not in st.session_state:
