@@ -5,7 +5,7 @@ import streamlit as st
 import openai
 import os
 import pandas as pd
-input_text = st.text_input("Enter Query here: ", value='', help='Try something like "Get all IPhone devices"')
+input_text = st.text_input("Enter Query here: ", value='', help='Try something like "Get all IPhone and Home devices"')
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -14,7 +14,7 @@ foot_traffic = gpd.GeoDataFrame(
     foot_traffic, geometry=gpd.points_from_xy(foot_traffic.longitude, foot_traffic.latitude))
 foot_traffic = foot_traffic.set_crs('epsg:4326')
 
-prompt = f"\"\"\"\npandas dataframe foot_traffic, foot_traffic= [ad_id,Date_,Hour_,latitude,longitude,Business_Location_Flag,Collection_Point_InMarket,id_type,Total_coverage_of_id,Total_pings_of_id,Indoor,BuildingID,TMOCustCnt,TMO_FIagIn,Building,Home_Flag,Category,Industry]\n without assigning new variable, {input_text}  \"\"\"\n\n\n"
+prompt = f"\"\"\"\npandas dataframe foot_traffic, foot_traffic= [ad_id,Date_,Hour_,latitude,longitude,Business_Location_Flag,Collection_Point_InMarket,id_type,Total_coverage_of_id,Total_pings_of_id,Indoor,BuildingID,TMOCustCnt,TMO_FIagIn,Building,Home,Category,Industry]\n without assigning new variable, {input_text}  \"\"\"\n\n\n"
 print(f'Prompt: \n {prompt}')
 
 m = folium.Map(location=[47.55481, -122.67772], tiles="OpenStreetMap", zoom_start=8)
