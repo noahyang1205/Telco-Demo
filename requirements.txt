@@ -2,3 +2,6 @@ openai
 streamlit_chat
 imageio
 streamlit_extras
+geopandas
+folium
+streamlit_folium
