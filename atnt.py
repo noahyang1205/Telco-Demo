@@ -41,8 +41,8 @@ row = profiles.iloc[row_idx]
 industry_list = ['Retail','Software','Professional services', 'Transportation','Healthcare','Education','Financial services', 'Manufacturing','Government','Telecommunications',
 'Media & Entertainment', 'Energy & Utilities', 'Hospitality','Agriculture']
 product_list = ['Unlimited Starter','Unlimited Performance','Unlimited Elite','Wireless Data 50 GB/month','Wireless Data 100 GB/month','Broadband Core','Broadband Pro','Broadband Ultra','Fiber 300 Mbps','Fiber 500 Mbps','Fiber 1 Gbps','Fiber 2 Gbps','Fiber 5 Gbps','Phone','None']
-promotion_list = ['25% wireless discount','$250 wireline reward','$750 wireline reward','Phone bundle','$50 reward card','Retention promotion']
-
+promotion_list = ['25% wireless discount','$250 wireline reward','$750 wireline reward','Phone bundle','$50 reward card','Retention promotion',"None"]
+sales_play_list = ['Account Acquisition','Upsell', 'Cross-sell', 'Retain']
 
 with st.sidebar.expander("Account Information",expanded=False):
     first_name = st.text_input('Profile First name', row.iloc[0]['First Name'])
@@ -63,19 +63,30 @@ additional_comments = st.sidebar.text_input('Additional Comments ')
 # add_logo("./assets/AT&T_logo_2016.svg.png")
 col1, col2 = st.columns(2)
 
+current_product_default = list(map(str, row.iloc[0]['Current products'].split(",")))
+
+
 with col1:
     st.markdown("### Sales Information")
-    current_product = st.multiselect('Current products', product_list, row.iloc[0]['Current products'])
-    sales_play = st.selectbox('Sales Play', (['Account Acquisition','Upsell', 'Cross-sell', 'Retain']))
+    # if ',' in row.iloc[0]['Current products']: # check for multiples
+    #     current_product_default = list(map(str, row.iloc[0]['Current products'].split(",")))
+    # else:
+    #     current_product_default = row.iloc[0]['Current products']
+    sales_play = st.selectbox('Sales Play', options=sales_play_list, index=sales_play_list.index(row.iloc[0]['Sales play']))
+    
+    current_product_default = 'None' if sales_play == 'Account Acquisition' else list(map(str, row.iloc[0]['Current products'].split(",")))
+    #print(f'current products {current_product_default}')
+    current_product = st.multiselect('Current products', product_list, current_product_default)
+    
     previous_relationship = st.selectbox('Previous Relationship', (['Personal Connection - Acquaintance','None', 'Professional']), 1)
     likely_product_needs = st.multiselect(
     'Likely Product Needs',
     product_list, row.iloc[0]['Product needs'])
     promotions = st.multiselect("Applicable Promotions",promotion_list)
-    
+
 with col2:
     st.markdown("### Model Parameter")
-    email_length = st.slider(label='Email Length',min_value=128, max_value=1024, step=1, value=256)
+    email_length = st.slider(label='Maximum Email Length',min_value=128, max_value=1024, step=1, value=256)
     temperature = st.slider(label='Model temperature',min_value=0.0, max_value=1.0, step=0.01, value=0.5)
     tone = st.multiselect('Tone',['Professional','Engaging','Persuasive','Inspirational','Informal'], ['Professional','Engaging'])
     n = st.number_input(label='Number of candidate emails to generate',min_value=1)
@@ -86,7 +97,7 @@ promotions_str = ", ".join(promotions)
 tone_str = ", ".join(tone)
 
 
-openAI_prompt = f'Write a AT&T sales lead email with the following information: Salesperson name: Maria Hernandez Client name: {first_name} {last_name}, Client Company: {company}, Sales play: {sales_play}, Likely product needs: {product_need_str}, Applicable promotion: {promotions_str}. The tone of the email should be {tone_str}'
+openAI_prompt = f'Write a AT&T B2B sales email with the following information: \n """Salesperson name: Maria Hernandez Client name: {first_name} {last_name}, Client Company: {company}, Sales play: {sales_play}, Likely product needs: {product_need_str}, Applicable promotion: {promotions_str}, Previous relationship with the client: {previous_relationship}. The tone of the email should be {tone_str}. Do not mention Sales play in the email. Do not mention promotion if there are no applicable promotion. """'
 
 # print(openAI_prompt)
 
