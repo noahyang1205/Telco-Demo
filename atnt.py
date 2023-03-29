@@ -17,7 +17,10 @@ st.set_page_config(
     page_icon=":robot:"
 )
 
-st.markdown("# AT&T Sales Lead Script Generator")
+img_business = iio.imread('./assets/AT&T_business.jpg')
+st.image(image=img_business, width=500)
+
+st.markdown("## Sales Lead Script Generator")
 
 
 img = iio.imread('./assets/AT&T_logo_2016.svg.png')
@@ -78,7 +81,7 @@ with col1:
     #print(f'current products {current_product_default}')
     current_product = st.multiselect('Current products', product_list, current_product_default)
     
-    previous_relationship = st.selectbox('Previous Relationship', (['Personal Connection - Acquaintance','None', 'Professional']), 1)
+    previous_relationship = st.selectbox('Previous Relationship', (['Personal Connection - Acquaintance','None', 'Professional','Personal connection - Friends']), 1)
     likely_product_needs = st.multiselect(
     'Likely Product Needs',
     product_list, row.iloc[0]['Product needs'])
@@ -96,7 +99,8 @@ product_need_str = ", ".join(likely_product_needs)
 promotions_str = ", ".join(promotions)
 tone_str = ", ".join(tone)
 
-
+if previous_relationship == 'Personal connection - Friends':
+    previous_relationship = 'Personal connection - sons go to the same high school'
 openAI_prompt = f'Write a AT&T B2B sales email with the following information: \n """Salesperson name: Maria Hernandez Client name: {first_name} {last_name}, Client Company: {company}, Sales play: {sales_play}, Likely product needs: {product_need_str}, Applicable promotion: {promotions_str}, Previous relationship with the client: {previous_relationship}. The tone of the email should be {tone_str}. Do not mention Sales play in the email. Do not mention promotion if there are no applicable promotion. """'
 
 # print(openAI_prompt)

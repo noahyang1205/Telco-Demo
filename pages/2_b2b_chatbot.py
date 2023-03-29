@@ -7,6 +7,7 @@ from io import StringIO
 import imageio as iio
 from streamlit_extras.app_logo import add_logo
 from datetime import date
+import json
 
 st.set_page_config(
     page_title="AT&T B2B chatbot",
@@ -15,7 +16,10 @@ st.set_page_config(
 
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
-st.markdown("# AT&T B2B Agent Chat Log")
+img_business = iio.imread('./assets/AT&T_business.jpg')
+st.image(image=img_business, width=500)
+
+st.markdown("## B2B Agent Chat Log")
 
 if 'generated' not in st.session_state:
     st.session_state['generated'] = []
@@ -27,7 +31,11 @@ img = iio.imread('./assets/AT&T_logo_2016.svg.png')
 st.sidebar.image(image=img, width=200)
 
 policy_data = Path(os.path.join('./assets/atnt_policy.txt')).read_text("UTF-8")
-account_data = Path(os.path.join('./assets/atnt_account_info.txt')).read_text("UTF-8")
+#account_data = Path(os.path.join('./assets/atnt_account_info.txt')).read_text("UTF-8")
+
+with open('./assets/b2b_profile.json') as user_file:
+    account_data = user_file.read()
+
 
 temperature = st.sidebar.slider(label='Model temperature',min_value=0.0, max_value=1.0, step=0.01, value=0.0)
 
@@ -41,7 +49,7 @@ with st.sidebar.expander("See account data"):
 
 today = date.today()
 
-bd_chat_lines_context = f'You are a AT&T B2B agent support assistant. Your job is to answer questions using the following AT&T policies: \n """{policy_data}""" and the following account information \n """{account_data}""". Today is {today}'
+bd_chat_lines_context = f'You are a AT&T B2B agent support assistant. Your job is to answer questions using the information database \n """{account_data}"""  and the following AT&T policies: \n """{policy_data}""" . Some of the accounts in the database are not current AT&T customers. Today is {today}'
 print(bd_chat_lines_context)
 
 
@@ -54,11 +62,10 @@ def query(prompt):
         model="text-davinci-003",
         prompt=openAI_prompt,
         temperature=temperature,
-        max_tokens=1024,
+        max_tokens=2024,
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0,
-        stop=["Q:"],
         timeout=20
     )
 
