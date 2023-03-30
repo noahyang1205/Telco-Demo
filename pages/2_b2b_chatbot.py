@@ -114,7 +114,8 @@ if st.session_state["generated"] and st.session_state["past"]:
             st.session_state["past"][i],
             is_user=True,
             key=str(i) + "_user",
-            seed=55
+            avatar_style='identicon',
+            seed=42
             
             
         )
