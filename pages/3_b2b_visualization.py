@@ -13,6 +13,8 @@ if 'current_response' not in st.session_state:
     st.session_state.current_response = ''
 if 'plot_data ' not in st.session_state:
     st.session_state.plot_data = ''
+if 'exec_code ' not in st.session_state:
+    st.session_state.exec_code = ''
 input_text = st.text_input("Enter Query here: ", value='', help='Try something like "Get all IPhone and Home devices"')
 st.session_state.current_response = input_text
 
@@ -52,7 +54,7 @@ if st.session_state.current_response != '' and (st.session_state.current_respons
     #print(f'response text {response_text}')
     exec_code = f'{query_variable}={response_text}'
     print(f'Requesting Query as: {exec_code}')
-    
+    st.session_state.exec_code = exec_code
     exec(exec_code)
     #print(filtered_df)
     
@@ -63,6 +65,14 @@ if st.session_state.current_response != '' and (st.session_state.current_respons
 
     #marker = folium.Marker(location=coord_data)
     #marker.add_to(m)
-
+    #st.write(f"Query executed is: {exec_code}")
+    
+    
+    
     folium.plugins.HeatMap(st.session_state.plot_data).add_to(st.session_state.m)
+if st.session_state.exec_code != '':
+        st.sidebar.write(f"Query executed is: {st.session_state.exec_code}")
 map_data = st_folium(st.session_state.m, key="fig1", width=1500)
+
+
+
