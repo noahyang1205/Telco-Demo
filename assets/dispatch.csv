@@ -1,0 +1,6 @@
+Dispatch ID,Date,Customer ID,Customer Name,Location ID,Address,Operation,Truck ID,Scheduled Start Time,Scheduled End Time,Priority,Start Time,End Time
+3878993,4/1/2023,1,Staples,23948791,4389 Jackson Ave,Installation,1,12:00,15:00,2,12:30,15:30
+3878994,4/5/2023,2,AlphaSense,23948792,9878 Fig Street,Repair,1,10:30,11:30,1,10:30,11:30
+3878995,4/5/2023,3,GLG,23948793,1908 Glacier Ave,Inspection,2,12:30,16:30,3,13:30,17:00
+3878996,4/5/2023,4,RocketBlocks,23948794,8989 Alain Drive,Repair,2,9:00,12:00,1,9:00,12:00
+3878997,3/30/2023,5,Deloitte,23948795,1893 Bell Ave,Repair,1,9:00,10:00,1,9:00,10:00
