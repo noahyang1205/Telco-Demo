@@ -5,3 +5,6 @@ streamlit_extras
 geopandas
 folium
 streamlit_folium
+audio_recorder_streamlit
+soundfile
+gtts
