@@ -65,7 +65,7 @@ col2.header('System Backend')
 input_text = col1.text_input(
     "Input: ",
     value="",
-    help='Try something like "Who is our largest customer by company size"',
+    help='Try something like "What are the routes for dispatched trucks this week?"',
 )
 
 
