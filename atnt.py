@@ -12,7 +12,7 @@ import pandas as pd
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
-st.set_page_config(page_title="AT&T sales lead script generator", page_icon=":robot:")
+st.set_page_config(page_title="AT&T sales lead script generator", page_icon=":robot:",layout="wide")
 
 img_business = iio.imread("./assets/AT&T_business.jpg")
 st.image(image=img_business, width=500)
