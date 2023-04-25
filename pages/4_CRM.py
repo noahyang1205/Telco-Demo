@@ -6,7 +6,7 @@ import json
 import pandas as pd
 from datetime import date
 import pyodbc
-import streamlit_toggle as tog
+from streamlit_toggle import toggle
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -121,34 +121,20 @@ with st.sidebar:
     st.header("Regulation parameter")
     cols1, cols2, cols3 = st.columns([1, 1, 1])
     with cols1:
-        GDPR = tog.st_toggle_switch(
+        GDPR = toggle(
             label="GDPR compliance (Input)",
             key="GDPR",
-            default_value=False,
-            label_after=False,
-            inactive_color="#D3D3D3",
-            active_color="#00a8e0",
-            track_color="#29B5E8",
         )
     with cols2:
-        PII = tog.st_toggle_switch(
+        PII = toggle(
             label="PII Removal (Output)",
             key="PII",
-            default_value=False,
-            label_after=False,
-            inactive_color="#D3D3D3",
-            active_color="#00a8e0",
-            track_color="#29B5E8",
         )
     with cols3:
-        safeguard = tog.st_toggle_switch(
+        safeguard = toggle(
             label="DataBase Safeguard",
             key="safeguard",
-            default_value=False,
-            label_after=False,
-            inactive_color="#D3D3D3",
-            active_color="#00a8e0",
-            track_color="#29B5E8",
+            
         )
 
 dispatch_df["Date"] = pd.to_datetime(dispatch_df["Date"])

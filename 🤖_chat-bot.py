@@ -108,7 +108,7 @@ def query(prompt):
             timeout=20
             )
     elif option == non_ft_model_name:
-        print('Non ft model')
+        #print('Non ft model')
         response = openai.Completion.create(
             model="text-davinci-003",
             prompt=openAI_prompt,
@@ -121,7 +121,7 @@ def query(prompt):
             timeout=20
         )
     elif option == ft_model_name:
-        print('FT model')
+        #print('FT model')
         response = openai.Completion.create(
             model="ada:ft-bain-data-science-2023-03-02-00-53-43",
             prompt=openAI_prompt,
@@ -149,7 +149,8 @@ def get_text():
 
 
 user_input = get_text()
-
+print(len(st.session_state['past']))
+print(len(st.session_state['generated']))
 if user_input:
     output = query(prompt={
         "inputs": {
@@ -159,23 +160,30 @@ if user_input:
         },"parameters": {"repetition_penalty": 0}, 
     })
     generated_response = output['inputs']['generated_responses']
-    st.session_state.past.append(user_input)
-
+    
+    if 'past' not in st.session_state or 'generated' not in st.session_state:
+        st.session_state['generated'] = []
+        st.session_state['past'] = []
+    else:
+        st.session_state.past.append(user_input)
     try:
         st.session_state.generated.append(output["generated_text"])
     except:
         output["generated_text"] = []
 
-if st.session_state['generated'] and st.session_state["past"]:
-    for i in range(len(st.session_state['generated'])-1, -1, -1):
+if 'past' in st.session_state and 'generated' in st.session_state:
+    if len(st.session_state['past']) >= len(st.session_state['generated']):
+        for i in range(len(st.session_state['generated'])-1, -1, -1):
 
-        # print(st.session_state["generated"])
-        # print(st.session_state["past"])
-        # print(i)
-        message(st.session_state["generated"][i], key=str(i))
-        message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')   
-         
+            message(st.session_state["generated"][i], key=str(i))
+            message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
+    elif len(st.session_state['past']) < len(st.session_state['generated']):
+        st.session_state['generated'].pop()
+
 if len(st.session_state['past']) == 0:
     print('Past len is zero')
+    st.session_state['generated'] = []
+    st.session_state['past'] = []
+elif 'generated' not in st.session_state or 'past' not in st.session_state:
     st.session_state['generated'] = []
     st.session_state['past'] = []
