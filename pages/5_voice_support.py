@@ -10,7 +10,7 @@ import pandas as pd
 import json
 import pyodbc
 from TTS.api import TTS
-
+import subprocess
 openai.api_key = os.getenv("OPENAI_API_KEY")
 st.set_page_config(layout="wide")
 
@@ -60,23 +60,35 @@ col1.header("User Interface")
 col2.header("Backend System")
 
 # TTS model
-#model_name = TTS.list_models()[0]
-model_name = 'tts_models/en/ljspeech/tacotron2-DDC'
+model_name = TTS.list_models()[0]
+#model_name = 'tts_models/en/ljspeech/tacotron2-DDC'
+#model_name =   'coqui_studio/en/Viktor Eka/coqui_studio'
 tts = TTS(model_name)
 
 def text2voice(text,col,tts=tts):
     """translate text to voice with TTS and output chat history
 
     Args:
-        text (str): Text to translate
+        text (str): Text to transcribe
         col (streamlit column): which column to output audio and chat history
-    """    
+    """
+    print(text)
+    text = text.replace("\n", "")
+    text = text.replace("HBO", "'edge bee owe")
+    text = text.replace("MTV", "emme tea vee")
+    text = text.replace("ESPN", "ee esse pea en")
+    text = text.replace("AMC", "'ay emme sieh")
     
-    #tts.tts_to_file(text=text, speaker=tts.speakers[1], language=tts.languages[0], file_path="output.mp3",speed=1.5,  emotion='Happy')
-    tts.tts_to_file(text=text,file_path="output.mp3",speed=1.5,  emotion='Happy')
+    os.remove("output.wav") if os.path.exists("output.wav") else None
+    #subprocess.run(['ls'], shell=True)
+    cmd = f'tts --text "{text}" --model_name tts_models/en/ljspeech/tacotron2-DDC --emotion Neutral --out_path output.wav'
+    print(cmd)
+    os.system(cmd)
+    #tts.tts_to_file(text=text, speaker=tts.speakers[0], language=tts.languages[0], file_path="output.wav",speed=1.5,  emotion='Neutral')
+    #tts.tts_to_file(text=text,file_path="output.wav",speed=0.9,  emotion='Happy')
 
     #output_tts.save("output.mp3")
-    output_audio = open("output.mp3", "rb")
+    output_audio = open("./output.wav", "rb")
     col.write("System Output: ")
     col.audio(output_audio, format="audio/wav")
     col.text_area(label="Chat History", value=st.session_state.chat_history,height=400)
@@ -138,17 +150,18 @@ def input_output_cycle():
                 presence_penalty=0,
                 timeout=20,
             )
-            output_text = response["choices"][0]["text"].strip()
+            output_text = response["choices"][0]["text"].strip('\n')
 
             st.session_state.chat_history += (
                 f"AI response: {output_text} \n"  # append AI response to chat history
             )
-
-            output_tts = gtts.gTTS(output_text)
-            output_tts.save("output.mp3")
-            output_audio = open("output.mp3", "rb")
-            col1.audio(output_audio, format="audio/wav")
-            col1.text_area(label="Chat History", value=st.session_state.chat_history,height=400)
+            
+            text2voice(text=output_text, col=col1,tts=tts)
+            # output_tts = gtts.gTTS(output_text)
+            # output_tts.save("output.wav")
+            # output_audio = open("output.wav", "rb")
+            # col1.audio(output_audio, format="audio/wav")
+            # col1.text_area(label="Chat History", value=st.session_state.chat_history,height=400)
 
             prompt = f'Extract the row from the pandas dataframe named user_database based on the input text. Store the results in a pandas dataframe called user_profile. \n  """ \n input text: {original_input}, user_database: {user_database} \n """ '
             # col2.write(prompt)
@@ -214,7 +227,7 @@ def input_output_cycle():
                 presence_penalty=0,
                 timeout=20,
             )
-            output_text = response["choices"][0]["text"].strip()
+            output_text = response["choices"][0]["text"].strip('\n')
 
             st.session_state.chat_history += (
                 f"AI response: {output_text} \n"  # append AI response to chat history
@@ -224,7 +237,7 @@ def input_output_cycle():
 
         if input_JSON["Input Type"] == "Greet":
             
-            prompt = "You are a Direct TV customer support chatbot. Greet the user and ask for his/her first and last name"
+            prompt = "You are a Direct TV customer support chat bot. Greet the user and ask for his/her first and last name in a friendly way"
 
             response = openai.Completion.create(
                 model="text-davinci-003",
@@ -236,8 +249,9 @@ def input_output_cycle():
                 presence_penalty=0,
                 timeout=20,
             )
-            output_text = response["choices"][0]["text"].strip()
-
+            output_text = response["choices"][0]["text"].strip('\n')
+            if output_text[0] == '.':
+                output_text = output_text[1:]
             st.session_state.chat_history += (
                 f"AI response: {output_text} \n"  # append AI response to chat history
             )
