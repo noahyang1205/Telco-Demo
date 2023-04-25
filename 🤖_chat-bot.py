@@ -173,7 +173,8 @@ if st.session_state['generated'] and st.session_state["past"]:
         # print(st.session_state["past"])
         # print(i)
         message(st.session_state["generated"][i], key=str(i))
-        message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')    
+        message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')   
+         
 if len(st.session_state['past']) == 0:
     print('Past len is zero')
     st.session_state['generated'] = []

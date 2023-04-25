@@ -9,6 +9,7 @@ import os
 import pandas as pd
 import json
 import pyodbc
+from TTS.api import TTS
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 st.set_page_config(layout="wide")
@@ -16,7 +17,7 @@ st.set_page_config(layout="wide")
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = ""
 
-if "cycle_state" not in st.session_state:
+if "cycle_state" not in st.session_state:   
     st.session_state.cycle_state = "To run"
 
 if "user_profile" not in st.session_state:
@@ -58,16 +59,23 @@ col1, col2 = st.columns(2)
 col1.header("User Interface")
 col2.header("Backend System")
 
-def text2voice(text,col):
-    """translate text to voice with GTTS and output chat history
+# TTS model
+#model_name = TTS.list_models()[0]
+model_name = 'tts_models/en/ljspeech/tacotron2-DDC'
+tts = TTS(model_name)
+
+def text2voice(text,col,tts=tts):
+    """translate text to voice with TTS and output chat history
 
     Args:
         text (str): Text to translate
         col (streamlit column): which column to output audio and chat history
     """    
     
-    output_tts = gtts.gTTS(text)
-    output_tts.save("output.mp3")
+    #tts.tts_to_file(text=text, speaker=tts.speakers[1], language=tts.languages[0], file_path="output.mp3",speed=1.5,  emotion='Happy')
+    tts.tts_to_file(text=text,file_path="output.mp3",speed=1.5,  emotion='Happy')
+
+    #output_tts.save("output.mp3")
     output_audio = open("output.mp3", "rb")
     col.write("System Output: ")
     col.audio(output_audio, format="audio/wav")
@@ -212,7 +220,7 @@ def input_output_cycle():
                 f"AI response: {output_text} \n"  # append AI response to chat history
             )
             
-            text2voice(text=output_text, col=col1)
+            text2voice(text=output_text, col=col1,tts=tts)
 
         if input_JSON["Input Type"] == "Greet":
             
@@ -234,7 +242,7 @@ def input_output_cycle():
                 f"AI response: {output_text} \n"  # append AI response to chat history
             )
 
-            text2voice(text=output_text, col=col1)
+            text2voice(text=output_text, col=col1, tts=tts)
 
         # Channel information is in SQL to showcase our abilities to talk to different system
         if input_JSON["Input Type"] == "Channel Information":
@@ -281,7 +289,7 @@ def input_output_cycle():
                 f"AI response: {output_text} \n"  # append AI response to chat history
             )
 
-            text2voice(text=output_text, col=col1)
+            text2voice(text=output_text, col=col1, tts=tts)
             
 if st.session_state.cycle_state == "To run":
     input_output_cycle()

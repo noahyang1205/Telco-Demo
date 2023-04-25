@@ -1,0 +1,7 @@
+{ 
+  
+      "GDPR_compliance": "False",
+      "Explanation": "This request is not GDPR compliant. GDPR requires that personal data is only collected and processed with the explicit consent of the individual. Asking for someone's address without their consent would be a violation of GDPR.",
+      "Original Request": "What's Jeff Holland's address?"
+  
+}

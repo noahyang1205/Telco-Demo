@@ -9,3 +9,5 @@ audio_recorder_streamlit
 soundfile
 gtts
 pyodbc
+streamlit_toggle
+TTS
