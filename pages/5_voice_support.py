@@ -72,20 +72,23 @@ def text2voice(text,col,tts=tts):
         text (str): Text to transcribe
         col (streamlit column): which column to output audio and chat history
     """
-    print(text)
-    text = text.replace("\n", "")
-    text = text.replace("HBO", "'edge bee owe")
-    text = text.replace("MTV", "emme tea vee")
-    text = text.replace("ESPN", "ee esse pea en")
-    text = text.replace("AMC", "'ay emme sieh")
+    # print(text)
+    # text = text.replace("\n", "")
+    # text = text.replace("HBO", "'edge bee owe")
+    # text = text.replace("MTV", "emme tea vee")
+    # text = text.replace("ESPN", "ee esse pea en")
+    # text = text.replace("AMC", "'ay emme sieh")
     
     os.remove("output.wav") if os.path.exists("output.wav") else None
     #subprocess.run(['ls'], shell=True)
-    cmd = f'tts --text "{text}" --model_name tts_models/en/ljspeech/tacotron2-DDC --emotion Neutral --out_path output.wav'
-    print(cmd)
-    os.system(cmd)
+    #cmd = f'tts --text "{text}" --model_name tts_models/en/ljspeech/tacotron2-DDC --emotion Neutral --out_path output.wav'
+    # print(cmd)
+    # os.system(cmd)
     #tts.tts_to_file(text=text, speaker=tts.speakers[0], language=tts.languages[0], file_path="output.wav",speed=1.5,  emotion='Neutral')
     #tts.tts_to_file(text=text,file_path="output.wav",speed=0.9,  emotion='Happy')
+    
+    output_tts = gtts.gTTS(text)
+    output_tts.save("output.wav")
 
     #output_tts.save("output.mp3")
     output_audio = open("./output.wav", "rb")
