@@ -9,7 +9,7 @@ import os
 import pandas as pd
 import json
 import pyodbc
-from TTS.api import TTS
+#from TTS.api import TTS
 import subprocess
 openai.api_key = os.getenv("OPENAI_API_KEY")
 st.set_page_config(layout="wide")
@@ -60,12 +60,12 @@ col1.header("User Interface")
 col2.header("Backend System")
 
 # TTS model
-model_name = TTS.list_models()[0]
+#model_name = TTS.list_models()[0]
 #model_name = 'tts_models/en/ljspeech/tacotron2-DDC'
 #model_name =   'coqui_studio/en/Viktor Eka/coqui_studio'
-tts = TTS(model_name)
+#tts = TTS(model_name)
 
-def text2voice(text,col,tts=tts):
+def text2voice(text,col):
     """translate text to voice with TTS and output chat history
 
     Args:
