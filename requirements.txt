@@ -11,3 +11,4 @@ gtts
 pyodbc
 streamlit_toggle
 TTS
+google-cloud-texttospeech
