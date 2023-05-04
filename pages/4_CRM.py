@@ -62,6 +62,7 @@ today = date.today().strftime("%m/%d/%Y")
 st.set_page_config(page_title="AT&T B2B chatbot", page_icon=":robot:", layout="wide")
 customer_df = pd.read_csv("./assets/b2b_profiles.csv")
 dispatch_df = pd.read_csv("./assets/dispatch.csv")
+cache_df = pd.read_csv("./assets/CRM_cache.csv")
 
 # Logos
 img = iio.imread("./assets/AT&T_logo_2016.svg.png")
@@ -162,6 +163,12 @@ with st.sidebar:
         options=["SQL", "NosQL", "Pandas", "MongoDB"],
         key="dispatchDB",
     )
+    # Cache options
+    st.header("System parameter")
+    cache = toggle(
+            label="Enable cache",
+            key="cache",
+        )
     # Regulation supervision
     st.header("Regulation parameter")
     cols1, cols2, cols3 = st.columns([1, 1, 1])
@@ -200,131 +207,149 @@ col2.header("System Backend")
 input_text = col1.text_input(
     "Input: ",
     value="",
-    help='Try something like "What are the routes for dispatched trucks this week?"',
+    help='Try something like "What are the dispatches I have coming up in the next month?"',
 )
 
-st.session_state.current_response = input_text
+cache_question_list = cache_df.Input.values.tolist()
 
-# Ingestion call
-prompt = f'Based on the request, create a JSON file with the same structure as the example JSON file. Fill field with Unknown if you are unsure how to categorize the request. """\n\n\n Request: {input_text}, Example JSON: {example_query}. Possible values for Database Field: 1. Product, 2. Promotion, 3. Customer, 4. Policy, 5.Operations/Dispatch, 6.Unknown. Possible values for Request Type field: 1. Query, 2. Modify  """\n\n\n'
+# Pull from cache dataframe if question already in cache
+if cache:
+    if input_text in cache_question_list:
+        row_idx = cache_df.index[cache_df['Input']==input_text].tolist()[0]
+        row = cache_df.iloc[[row_idx]]
+        col2.write("Ingestion JSON: ")
+        #col2.write(row)
+        col2.code(row['Ingestion JSON'][row_idx], language="json")
+        
+        col2.write(f"Executed query")
+        col2.code(row['Query code'][row_idx])
 
-if input_text:
-    
-    txt_response = openAI_API(prompt)
-    ingestion_json = json.loads(txt_response)
-    json.dumps(ingestion_json, indent=4)
+        col1.text_area(label="Query results", value=row['Query Results'][row_idx])
 
-    col2.write("Ingestion JSON: ")
-    col2.code(txt_response, language="json")
-    original_prompt = ingestion_json["Original Request"]
+    else:
 
-    if GDPR:
-        # GDPR supervision at input level
-        prompt = f'Check if the following request complies with GDPR (General Data Protection Regulation) and format the output the same way as the example JSON file \n """\n\n\n Request: {original_prompt}, example JSON: {GDPR_example_query} """\n'
 
-        GDPR_compliance_txt = openAI_API(prompt)
-        GDPR_compliance_JSON = json.loads(GDPR_compliance_txt)
-        json.dumps(GDPR_compliance_JSON, indent=4)
+        st.session_state.current_response = input_text
+        # Ingestion call
+        prompt = f'Based on the request, create a JSON file with the same structure as the example JSON file. Fill field with Unknown if you are unsure how to categorize the request. """\n\n\n Request: {input_text}, Example JSON: {example_query}. Possible values for Database Field: 1. Product, 2. Promotion, 3. Customer, 4. Policy, 5.Operations/Dispatch, 6.Unknown. Possible values for Request Type field: 1. Query, 2. Modify  """\n\n\n'
 
-        col1.write("GDPR Compliance")
-        col1.code(GDPR_compliance_JSON["GDPR_compliance"])
-        col1.text_area(
-            label="GDPR Comments:", value=GDPR_compliance_JSON["Explanation"]
-        )
-
-    if ingestion_json["Database"] == "Customer":
-        if ingestion_json["Request Type"] == "Query":
-            prompt = f'Perform the request to the pandas dataframe named customer_df. Store results in a variable named results_df: \n """\n\n\n Request: {original_prompt}, Dataframe columns: {customer_columns} """\n'
+        if input_text:
             
-            exec_code = openAI_API(prompt)
-            
-            col2.write(f"Executed query")
-            
-            show_query = code_gen(db_format=customerDB_format, ingestion_json=ingestion_json)
-            
-            col2.code(show_query)
-            exec(exec_code)
-            
-            prompt = f'Use the following pandas dataframe to answer the question in natural language"""\n\n\n pandas dataframe: {results_df}, question: {ingestion_json["Original Request"]}"""\n'
-            # st.write(output_prompt)
-            if ingestion_json["Request Type"] == "Query":
-                
-                output_query = openAI_API(prompt)
-                col1.text_area("Query results:", output_query)
+            txt_response = openAI_API(prompt)
+            ingestion_json = json.loads(txt_response)
+            json.dumps(ingestion_json, indent=4)
 
-                if PII: # If PII removal enabled, remove PII from output
-                    
-                    prompt = f"Remove PII (Personal Identifiable Information) from the following statement '''\n\n\n statment: {output_query}''' \n "
-                    PIIoutput_query = openAI_API(prompt)
-                    col1.text_area("Query results (PII removed):", PIIoutput_query)
+            col2.write("Ingestion JSON: ")
+            col2.code(txt_response, language="json")
+            original_prompt = ingestion_json["Original Request"]
 
-        if ingestion_json["Request Type"] == "Modify":
-            prompt = f'Modify the pandas dataframe named customer_df according to the request: \n """\n\n\n Request: {original_prompt}, Dataframe columns: {customer_columns}"""\n'
-            
-            exec_code = openAI_API(prompt)
-            col2.code(f"Executed query")
-            show_query = code_gen(db_format=customerDB_format, ingestion_json=ingestion_json)
-            col2.code(show_query)
-            exec(exec_code)
-            col1.write(customer_df)
+            if GDPR:
+                # GDPR supervision at input level
+                prompt = f'Check if the following request complies with GDPR (General Data Protection Regulation) and format the output the same way as the example JSON file \n """\n\n\n Request: {original_prompt}, example JSON: {GDPR_example_query} """\n'
 
-    if ingestion_json["Database"] == "Operations/Dispatch": # Dispatch related questions
+                GDPR_compliance_txt = openAI_API(prompt)
+                GDPR_compliance_JSON = json.loads(GDPR_compliance_txt)
+                json.dumps(GDPR_compliance_JSON, indent=4)
 
-        if ingestion_json["Request Type"] == "Query":
-
-            prompt = f'Perform the request to the mySQL database named dispatch. Today is {today}: \n """\n\n\n Request: {original_prompt}, SQL fields: {dispatch_columns} """\n'
-            exec_code = openAI_API(prompt)
-            col2.write(f"Original query:")
-            show_query = code_gen(db_format=dispatchDB_format, ingestion_json=ingestion_json)
-            col2.code(show_query)
-
-            cursor.execute(exec_code)
-            for row in cursor:
-                col2.write(row)
-
-            # exec(exec_code)
-            # st.write(results_df)
-
-            prompt = f'Use the following pandas dataframe to answer the question in natural language. Today is {today}"""\n\n\n pandas dataframe: {dispatch_df}, question: {ingestion_json["Original Request"]}"""\n'
-            
-            if ingestion_json["Request Type"] == "Query":
-                query_results = openAI_API(prompt)
-                col1.text_area("Query results", query_results)
-
-        if ingestion_json["Request Type"] == "Modify":
-            prompt = f'Perform the request to the mySQL database named dispatch. Today is {today}: \n """\n\n\n Request: {original_prompt}, SQL fields: {dispatch_columns} """\n'
-            
-            exec_code = openAI_API(prompt)
-            
-            
-
-            if safeguard:
-                prompt = f'Check the following the mySQL code to see if it contains DROP or DELETE operations. : \n """\n\n\n mySQL query: {exec_code}"""\n'
-
-                safeguard_response = openai.Completion.create(
-                    model="text-davinci-003",
-                    prompt=prompt,
-                    temperature=0,
-                    max_tokens=1024,
-                    top_p=1,
-                    frequency_penalty=0,
-                    presence_penalty=0,
-                    stop=["Q:"],
-                    timeout=20,
+                col1.write("GDPR Compliance")
+                col1.code(GDPR_compliance_JSON["GDPR_compliance"])
+                col1.text_area(
+                    label="GDPR Comments:", value=GDPR_compliance_JSON["Explanation"]
                 )
-            safeguard_response = safeguard_response["choices"][0]["text"]
-            col2.text_area(label="Database Safeguard", value=safeguard_response)
 
-            
-            col2.write(f"Executed query:")
-            
-            show_query = code_gen(db_format=dispatchDB_format, ingestion_json=ingestion_json)
-            
-            col2.code(show_query)
-            
-            cursor.execute(exec_code)
+            if ingestion_json["Database"] == "Customer":
+                if ingestion_json["Request Type"] == "Query":
+                    prompt = f'Perform the request to the pandas dataframe named customer_df. Store results in a variable named results_df: \n """\n\n\n Request: {original_prompt}, Dataframe columns: {customer_columns} """\n'
+                    
+                    exec_code = openAI_API(prompt)
+                    
+                    col2.write(f"Executed query")
+                    
+                    show_query = code_gen(db_format=customerDB_format, ingestion_json=ingestion_json)
+                    
+                    col2.code(show_query)
+                    exec(exec_code)
+                    
+                    prompt = f'Use the following pandas dataframe to answer the question in natural language"""\n\n\n pandas dataframe: {results_df}, question: {ingestion_json["Original Request"]}"""\n'
+                    # st.write(output_prompt)
+                    if ingestion_json["Request Type"] == "Query":
+                        
+                        output_query = openAI_API(prompt)
+                        col1.text_area("Query results:", output_query)
 
-            for row in cursor:
-                st.write(row)
-            exec(exec_code)
-            col2.write(customer_df)
+                        if PII: # If PII removal enabled, remove PII from output
+                            
+                            prompt = f"Remove PII (Personal Identifiable Information) from the following statement '''\n\n\n statement: {output_query}''' \n "
+                            PIIoutput_query = openAI_API(prompt)
+                            col1.text_area("Query results (PII removed):", PIIoutput_query)
+
+                if ingestion_json["Request Type"] == "Modify":
+                    prompt = f'Modify the pandas dataframe named customer_df according to the request: \n """\n\n\n Request: {original_prompt}, Dataframe columns: {customer_columns}"""\n'
+                    
+                    exec_code = openAI_API(prompt)
+                    col2.code(f"Executed query")
+                    show_query = code_gen(db_format=customerDB_format, ingestion_json=ingestion_json)
+                    col2.code(show_query)
+                    exec(exec_code)
+                    col1.write(customer_df)
+
+            if ingestion_json["Database"] == "Operations/Dispatch": # Dispatch related questions
+
+                if ingestion_json["Request Type"] == "Query":
+
+                    prompt = f'Perform the request to the mySQL database named dispatch. Today is {today}: \n """\n\n\n Request: {original_prompt}, SQL fields: {dispatch_columns} """\n'
+                    exec_code = openAI_API(prompt)
+                    col2.write(f"System query:")
+                    show_query = code_gen(db_format=dispatchDB_format, ingestion_json=ingestion_json)
+                    col2.code(show_query)
+
+                    cursor.execute(exec_code)
+                    for row in cursor:
+                        col2.write(row)
+
+                    # exec(exec_code)
+                    # st.write(results_df)
+
+                    prompt = f'Use the following pandas dataframe to answer the question in natural language. Today is {today}"""\n\n\n pandas dataframe: {dispatch_df}, question: {ingestion_json["Original Request"]}"""\n'
+                    
+                    if ingestion_json["Request Type"] == "Query":
+                        query_results = openAI_API(prompt)
+                        col1.text_area("Query results", query_results)
+
+                if ingestion_json["Request Type"] == "Modify":
+                    prompt = f'Perform the request to the mySQL database named dispatch. Today is {today}: \n """\n\n\n Request: {original_prompt}, SQL fields: {dispatch_columns} """\n'
+                    
+                    exec_code = openAI_API(prompt)
+                    
+                    
+
+                    if safeguard:
+                        prompt = f'Check the following the mySQL code to see if it contains DROP or DELETE operations. : \n """\n\n\n mySQL query: {exec_code}"""\n'
+
+                        safeguard_response = openai.Completion.create(
+                            model="text-davinci-003",
+                            prompt=prompt,
+                            temperature=0,
+                            max_tokens=1024,
+                            top_p=1,
+                            frequency_penalty=0,
+                            presence_penalty=0,
+                            stop=["Q:"],
+                            timeout=20,
+                        )
+                    safeguard_response = safeguard_response["choices"][0]["text"]
+                    col2.text_area(label="Database Safeguard", value=safeguard_response)
+
+                    
+                    col2.write(f"Executed query:")
+                    
+                    show_query = code_gen(db_format=dispatchDB_format, ingestion_json=ingestion_json)
+                    
+                    col2.code(show_query)
+                    
+                    cursor.execute(exec_code)
+
+                    for row in cursor:
+                        st.write(row)
+                    exec(exec_code)
+                    col2.write(customer_df)

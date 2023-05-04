@@ -1,0 +1,37 @@
+Name: Juan García
+Age: 80 years old
+Gender: Male
+Address: Calle Delicias No. 124, Colonia San Rafael, 06450 Ciudad de México, CDMX, Mexico
+Family Status: Married
+Phone Number: 703.274.0190
+Occupation: Retired
+Mobile Device Usage: Uses iphones to stay connected to family, and social media.
+Current Plan: Internet en tu Casa Plus 5G
+
+Month: January
+
+iPhone 1: 4.5 GBs, 150 talk minutes, 350 text messages, paid on time
+iPhone 2: 2 GBs, 100 talk minutes, 200 text messages, paid on time
+iPhone 3: 2 GBs, 80 talk minutes, 200 text messages, paid on time
+iPad: 3 GBs, 70 talk minutes, 150 text messages, paid on time
+Apple Watch 1: 500 MBs, 50 talk minutes, 75 text messages, paid on time
+Regular plan fee: $499
+Total Bill: $499
+
+Month: February
+
+iPhone 1: 3 GBs, 100 talk minutes, 300 text messages, paid on time
+iPhone 2: 2 GBs, 150 talk minutes, 250 text messages, paid on time
+iPhone 3: 4 GBs, 80 talk minutes, 200 text messages, paid on time
+International roaming fee: $70
+Regular plan fee: $499
+Total Bill: $569
+
+Month: March
+
+iPhone 1: 5GB, 200 talk minutes, 500 text messages, paid on time 
+iPhone 2: 3GB, 100 talk minutes, 300 text messages, paid on time
+iPhone 3: 4GB, 150 talk minutes, 200 text messages, paid on time
+iPad: 2GB, 50 talk minutes, 0 text messages, paid on time
+Regular plan fee: $499
+Total Bill: $499

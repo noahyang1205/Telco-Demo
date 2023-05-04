@@ -1,0 +1,20 @@
+﻿Input,Ingestion JSON,Query code,Query Results,,,,
+What are the dispatches I have coming up in the next month?,"{ 
+      ""Database"": ""Operations/Dispatch"",
+      ""Expected Output"":""Simple Text"",
+      ""Request Type"": ""Query"",
+      ""Original Request"": ""What are the dispatches I have coming up in the next month?""
+}","SELECT Dispatch_ID, Date, Customer_ID, Customer_Name, Location_ID, Address, Operation, Truck_ID, Scheduled_Start_Time, Scheduled_End_Time, Priority, Start_Time, End_Time FROM dispatch_db WHERE Date BETWEEN '05/01/2023' AND '05/31/2023';","The dispatches coming up in the next month are Dispatch ID 3878994, 3878995, 3878996, and 3878997.",,,,
+Who is our largest account?,"{ ""Database"": ""Customer"", ""Expected Output"":""Simple Text"", ""Request Type"": ""Query"", ""Original Request"": ""Who is our largest account?"" }","SELECT First_Name, Last_Name, Position, Company, Sales_play, Company_size, Current_customer, Current_monthly_spend, Industry, Address, City, State, Zipcode, Current_products, Product_needs, Contract_start_date, Contract_end_date, Contract_end_year, Competitive_options, Current_provider
+FROM customer_db
+WHERE Contract_end_year = '2023'
+ORDER BY Current_monthly_spend DESC
+LIMIT 1;","Helen Jackson is our largest account, as she is the COO of AlphaSense, a company with 10-Jan employees and an Upsell sales play.",,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
