@@ -11,8 +11,8 @@ from datetime import date
 st.set_page_config(page_title="Telia chat-bot demo", page_icon=":robot:")
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
-img_short = iio.imread("../assets/Telia.png")
-img_long = iio.imread("../assets/Telia_company.png")
+img_short = iio.imread("./assets/Telia.png")
+img_long = iio.imread("./assets/Telia_company.png")
 st.image(image=img_long, width=500)
 st.header("Customer Support Chat Log")
 
