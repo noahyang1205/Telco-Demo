@@ -1,0 +1,65 @@
+Name: Amy Smith
+
+Age: 24
+
+Gender: Female
+
+Address: 123 Park Drive, Los Angeles, CA
+
+Family Status: Single
+
+Phone Number: 323-555-4236
+
+Occupation: TV Producer
+
+Mobile Device Usage: Uses a Samsung Galaxy S9 Plus which he uses for texting, web browsing, and watching videos.
+
+Plan: Small Data Plan
+
+Comments: Amy uses more than 5GB of data per month and gets charged for the extra data she uses. 
+
+Tower pings: 
+
+1. iPhone 10     GPS locations from pings in the last 4 weeks: 
+a. 32.8879° N, 96.4717° W
+b. 32.8879° N, 96.4717° W
+c. 32.8712° N, 96.5183° W
+d. 32.9256° N, 96.4441° W
+e. 32.8467° N, 96.4399° W
+f. 32.8993° N, 96.4110° W
+g. 32.8529° N, 96.4710° W
+h. 32.9167° N, 96.4544° W
+i. 32.8993° N, 96.4110° W
+j. 32.8712° N, 96.5183° W
+k. 32.9256° N, 96.4441° W
+l. 32.8879° N, 96.4717° W
+m. 32.8529° N, 96.4710° W
+n. 32.9167° N, 96.4544° W
+o. 32.8467° N, 96.4399° W
+p. 32.8993° N, 96.4110° W
+q. 32.8712° N, 96.5183° W
+r. 32.9256° N, 96.4441° W
+s. 32.8879° N, 96.4717° W
+t. 32.8529° N, 96.4710° W
+u. 32.9167° N, 96.4544° W
+v. 32.8467° N, 96.4399° W
+w. 32.8993° N, 96.4110° W
+x. 32.8712° N, 96.5183° W
+y. 32.9256° N, 96.4441° W
+z. 32.8879° N, 96.4717° W
+aa. 32.8529° N, 96.4710° W
+bb. 32.9167° N, 96.4544° W
+cc. 32.8467° N, 96.4399° W
+dd. 32.8993° N, 96.4110° W
+ee. 32.8712° N, 96.5183° W
+ff. 32.9256° N, 96.4441° W
+gg. 32.8879° N, 96.4717° W
+hh. 32.8529° N, 96.4710° W
+ii. 32.9167° N, 96.4544° W
+jj. 32.8467° N, 96.4399° W
+kk. 32.8993° N, 96.4110° W
+ll. 32.8712° N, 96.5183° W
+mm. 32.9256° N, 96.4441° W
+nn. 32.8879° N, 96.4717° W
+oo. 32.8529° N, 96.4710° W
+pp. 32.9167° N, 96.4544° W

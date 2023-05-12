@@ -1,0 +1,34 @@
+
+Name: Bob Smith
+Age: 18
+Gender: Male
+Address: 1234 Broadway Street, New York, NY
+Family Status: Single
+Phone Number: (212) 345-6789
+Occupation: Student
+Mobile Device Usage: iOS, Samsung Galaxy
+Plan: Student plan
+
+
+Month: January
+
+iPhone 1: 4.5 GBs, 150 talk minutes, 350 text messages, paid on time
+iPhone 2: 2 GBs, 100 talk minutes, 200 text messages, paid on time
+iPhone 3: 2 GBs, 80 talk minutes, 200 text messages, paid on time
+iPad: 3 GBs, 70 talk minutes, 150 text messages, paid on time
+Apple Watch 1: 500 MBs, 50 talk minutes, 75 text messages, paid on time
+
+
+Month: February
+
+iPhone 1: 3 GBs, 100 talk minutes, 300 text messages, paid on time
+iPhone 2: 2 GBs, 150 talk minutes, 250 text messages, paid on time
+iPhone 3: 4 GBs, 80 talk minutes, 200 text messages, paid on time
+
+
+Month: March
+
+iPhone 1: 5GB, 200 talk minutes, 500 text messages, paid on time 
+iPhone 2: 3GB, 100 talk minutes, 300 text messages, paid on time
+iPhone 3: 4GB, 150 talk minutes, 200 text messages, paid on time
+iPad: 2GB, 50 talk minutes, 0 text messages, paid on time

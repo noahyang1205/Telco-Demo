@@ -1,1 +1,7 @@
 *.mp3
+pages/5_voice_support.py
+azure_connect.py
+email-generation.py
+finetune.ipynb
+lumi_test.py
+tts_output.wav

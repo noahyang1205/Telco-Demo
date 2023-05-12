@@ -168,7 +168,7 @@ def input_output_cycle():
                 
 
     if st.session_state.ready == True:
-        st.write(user_input)
+        #st.write(user_input)
         
         JSON_prompt = f'Based on the request, create a JSON file with the same structure as the example JSON file. """\n\n\n Request: {user_input}, Example JSON: {example_query}. Possible values for Input Type field: 1. User Identification, 2. Add Channel, 3. Remove/Unsubscribe 4. Channel Information, 5. Greet. Details about each field: 1. User Identification: when user provide first and last name. 2. Add Channel: When user wants to add/subscribe to a new channel. 3. Remove/Unsubscribe: When user wants to remove/unsubscribe a channel. 4. Channel Information: When user ask for information about a channel. 5. Greet: When user greets. 6. Unknown: when the user input is irrelevant to DirectTV related questions"""\n\n\n'
 
@@ -246,7 +246,8 @@ def input_output_cycle():
             original_input = input_JSON["Original Input"]
             user_profile = st.session_state.user_profile
 
-            prompt = f'Based on the user profile, modify the pandas dataframe named user_profile given by the instructions and store the results in a dataframe named user_profile \n """\n\n\n user profile: {user_profile}, instructions: {input_JSON["Original Input"]} \n"""'
+            #prompt = f'Based on the user profile, modify the pandas dataframe named user_profile given by the instructions and store the results in a dataframe named user_profile \n """\n\n\n user profile: {user_profile}, instructions: {input_JSON["Original Input"]} \n"""'
+            prompt = f'Based on the user profile, modify the pandas dataframe named user_profile given by the instructions. \n """\n\n\n user profile: {user_profile}, instructions: {input_JSON["Original Input"]} \n"""'
             # col2.write(prompt)
             response = openai.Completion.create(
                 model="text-davinci-003",
@@ -261,7 +262,7 @@ def input_output_cycle():
             pd_query = response["choices"][0]["text"]
 
             loc = {"user_profile": user_profile}
-            # st.write(pd_query)
+            #st.write(pd_query)
             exec(pd_query, loc, globals())
             col2.write("Executed query: Add Channels")
             col2.code(pd_query)
