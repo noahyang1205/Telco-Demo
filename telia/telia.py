@@ -55,7 +55,7 @@ else:
     profile_data = Path(os.path.join('./user_profiles', profile_selection)).read_text("UTF-8")
     expander.write(profile_data)
 
-policy_data = Path(os.path.join('./assets/Telia_policy.txt')).read_text("UTF-8")
+policy_data = Path('./assets/Telia_policy.txt').read_text("UTF-8")
 expander = st.sidebar.expander("See policy")
 expander.write(policy_data)
 
