@@ -30,7 +30,7 @@ st.sidebar.image(image=img_short,width=250)
 
 st.sidebar.markdown("# User profile parameters")
 # User profile/model parameters on the sidebar
-preset_profiles = os.listdir('user_profiles')
+preset_profiles = os.listdir('telia_profiles')
 preset_profiles.append('Customized profile')
 profile_selection = st.sidebar.selectbox('Select user profile',(preset_profiles),index=0)
 
@@ -52,7 +52,7 @@ if profile_selection == 'Customized profile':
 
 else:
     expander = st.sidebar.expander("See user profile details")
-    profile_data = Path(os.path.join('./user_profiles', profile_selection)).read_text("UTF-8")
+    profile_data = Path(os.path.join('./telia_profiles', profile_selection)).read_text("UTF-8")
     expander.write(profile_data)
 
 
