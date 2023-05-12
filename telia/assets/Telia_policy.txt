@@ -1,4 +1,4 @@
-List of Telia plans
+Lista över Telia-planer
 
 Telia Mobil Obegränsad Premium: 
 - 729 kr/mån
@@ -12,8 +12,6 @@ Obegränsad Netflix & C More
 - Obegränsade samtal, sms, mms och surf
 - Telia Cloud ingår - obegränsad lagring
 - 5G+ ingår
-
-
 
 Obegränsad HBO Max & C More
 - 649 kr/mån
@@ -63,23 +61,12 @@ Telia Mobilt bredband Obegränsad
 - Njut av en surf som aldrig tar slut
 - 50 kr rabatt om du har fast bredband från Telia
 
-
-
 Mobilt bredband 70 GB
-
-289 kr/mån
-
-Strömma film i HD, musik mm.
-
-50 kr rabatt om du har fast bredband från Telia
-
-
-
+- 289 kr/mån
+- Strömma film i HD, musik mm.
+- 50 kr rabatt om du har fast bredband från Telia
 
 Mobilt bredband 40 GB
-
-239 kr/mån
-
-Strömma serier, musik mm.
-
-50 kr rabatt om du har fast bredband från Telia
+- 239 kr/mån
+- Strömma serier, musik mm.
+- 50 kr rabatt om du har fast bredband från Telia

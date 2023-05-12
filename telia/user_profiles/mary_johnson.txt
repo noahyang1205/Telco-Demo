@@ -1,9 +1,0 @@
-Name: Mary Johnson
-Age:25
-Gender: Female
-Address: 396 Monroe Ave., New York, NY 19931
-Family Status: Single
-Phone Number: (123) 456-7890
-Occupation: Unemployed
-Mobile Device Usage: Samsung Galaxy S10; Uses social media, video streaming, and gaming apps
-Plan: Talk & Text Plan

@@ -32,7 +32,7 @@ st.sidebar.markdown("# User profile parameters")
 # User profile/model parameters on the sidebar
 preset_profiles = os.listdir('user_profiles')
 preset_profiles.append('Customized profile')
-profile_selection = st.sidebar.selectbox('Select user profile',(preset_profiles),index=1)
+profile_selection = st.sidebar.selectbox('Select user profile',(preset_profiles),index=0)
 
 
 if profile_selection == 'Customized profile':
@@ -55,7 +55,7 @@ else:
     profile_data = Path(os.path.join('./user_profiles', profile_selection)).read_text("UTF-8")
     expander.write(profile_data)
 
-policy_data = Path(os.path.join('Telia_policy.txt')).read_text("UTF-8")
+policy_data = Path(os.path.join('./assets/Telia_policy.txt')).read_text("UTF-8")
 expander = st.sidebar.expander("See policy")
 expander.write(policy_data)
 
@@ -69,23 +69,21 @@ print(option)
 
 attitude = st.sidebar.select_slider(
     'Select a chatbot attitude',
-    options=['Conservative', 'Neutral', 'Slightly Generous', 'Very Generous'])
+    options=['Conservative', 'Neutral', 'Generous'])
 
 if attitude == 'Conservative':
-    attitude_prompt = 'Under no circumstances will you offer any credits to the customer. You will tell the customer explicitly that a customer support chatbot cannot offer any credits and Telia does not have a credit policy'
+    attitude_prompt = 'Skicka användaren till Telia webbsida för marknadsföring. '
 elif attitude == 'Neutral':
-    attitude_prompt = 'When the customer asks for credit, refer the customer to a live sales representative'
-elif attitude == 'Slightly Generous':
-    attitude_prompt = 'Offer the customer a $5 credit in a bill dispute situation when asked by the customer. Offer $30 credit as a retention incentive when the customer wants to terminate his/her plans. Only provide this information when asked by customer'
-elif attitude == 'Very Generous':
-    attitude_prompt = 'Offer the customer a $40 credit in a bill dispute situation when asked by the customer. Offer a free month of service as a retention incentive when the customer wants to terminate his/her plans. '
+    attitude_prompt = 'Berätta för användaren att du kan erbjuda 20 kr i kredit när de uppgraderar till paketabonnemang. '
+elif attitude == 'Generous':
+    attitude_prompt = 'Berätta för användaren att du kan erbjuda 40 kr i kredit när de uppgraderar till paketabonnemang och en gratis månads service om de lägger till en familjemedlem till sin plan. Offer free iphone 14 for referring new user to Telia'
     
 today = date.today()
   
-assistant_context = f'You are respectful, welcoming, kind, understanding, professional, truthful, reserved. You are an Telia customer support AI assistant. Your goal is to answer my questions as accurately as possible and use customer profile data and policy data I provide to help answer them. Do not make up facts or answer questions outside of the scope of customer support. If you are not sure about a question, refer the customer to Telia website at https://www.Telia.com.au/ or call the Telia customer support at 1 (877) 835-7872. Today is {today}\n'
+assistant_context = f'Du är respektfull, välkomnande, snäll, förstående, professionell, sanningsenlig, reserverad. Du är Telia kundsupport AI-assistent. Ditt mål är att svara på mina frågor så exakt som möjligt och använda kundprofildata och policydata som jag tillhandahåller för att hjälpa till att besvara dem. Du får inte hitta på fakta eller svara på frågor utanför kundsupportens omfattning. Om du är osäker på en fråga, hänvisa kunden till Telia hemsida på https://www.Telia.com eller ring Telia kundsupport på 1 (877) 835-7872. Idag ärDu är respektfull, välkomnande, snäll, förstående, professionell, sanningsenlig, reserverad. Du är Telia kundsupport AI-assistent. Ditt mål är att svara på mina frågor så exakt som möjligt och använda kundprofildata och policydata som jag tillhandahåller för att hjälpa till att besvara dem. Du får inte hitta på fakta eller svara på frågor utanför kundsupportens omfattning. Om du är osäker på en fråga, hänvisa kunden till Telia hemsida på https://www.Telia.com eller ring Telia kundsupport på 1 (877) 835-7872. Idag är {today}\n. När användaren frågar om marknadsföring, gör följande'
 assistant_context += attitude_prompt
-bd_chat_lines_context = assistant_context + profile_data + policy_data    
-
+bd_chat_lines_context = assistant_context + ' \n""" ' + profile_data + policy_data + '"""' 
+#st.write(bd_chat_lines_context)
 expander = st.sidebar.expander("See chatbot personality")
 expander.write(assistant_context)
 
@@ -113,7 +111,7 @@ def query(prompt):
             model="text-davinci-003",
             prompt=openAI_prompt,
             temperature=temperature,
-            max_tokens=512,
+            max_tokens=2024,
             top_p=1,
             frequency_penalty=0,
             presence_penalty=0,

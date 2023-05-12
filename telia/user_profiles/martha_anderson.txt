@@ -1,9 +1,0 @@
-Name: Martha Anderson
-Age: 32
-Gender: Male 
-Address: 2258 N.W. 52nd Street, Miami, FL 33126 
-Family Status: Married, with 3 children
-Phone Number: (305) 555-9257
-Occupation: Web Developer
-Mobile Device Usage: Apple iPhone 8
-Plan: Family Plan

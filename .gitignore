@@ -5,3 +5,10 @@ email-generation.py
 finetune.ipynb
 lumi_test.py
 tts_output.wav
+context.txt
+contextLongtxt_prepared.jsonl
+1_🖼️_ad-gen.py
+context.txt
+contextLongtxt.txt
+sql_join.ipynb
+policy.txt
