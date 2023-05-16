@@ -1,0 +1,6 @@
+First Name,Last Name,Position,Company,Sales play,Company size,Current customer,Current monthly spend,Industry,Address,City,State,Zipcode,Current products,Product needs,Contract start date,Contract end date,Contract end year,Competitive options,Current provider
+Jack,Smith,IT Manager,Staples,Account Acquisition,1001-5000,No,N/A,Retail,4389 Jackson Ave,Dallas,Texas,75201,No current products,Fiber 5 Gbps,,,,"Verizon, AT&T",Verizon
+Helen,Jackson,COO,AlphaSense,Upsell,10-Jan,Yes,270,Software,9878 Fig Street,Dallas,Texas,75202,"Unlimited Starter,Broadband Core",Broadband Pro,1/1/2019,1/1/2024,2024,"Verizon, AT&T",AT&T
+Jeff,Holland,CEO,GLG,Cross-sell,101-500,Yes,160,Professional services,1908 Glacier Ave,Dallas,Texas,75201,Fiber 1 Gbps,Phone,6/1/2017,6/1/2023,2023,"Verizon, AT&T",AT&T
+Ian,Weber,General Manager,RocketBlocks,Retain,11-100,Yes,225,Software,8989 Alain Drive,Dallas,Texas,75202,Broadband Ultra,None,5/1/2022,5/1/2023,2023,"Verizon, AT&T",AT&T
+Han,Song,IT Associate,Deloitte,Account Acquisition,5000+,No,N/A,Professional services,1893 Bell Ave,Dallas,Texas,75201,No current products,Broadband Ultra,,,,"Verizon, AT&T",Verizon
