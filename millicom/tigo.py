@@ -20,7 +20,7 @@ st.image(image=img_business, width=300,use_column_width="auto")
 st.markdown("## Sales Lead Script Generator")
 
 
-img = iio.imread("./assets/tigo_logo_short.png")
+img = iio.imread("./assets/Logo_Tigo.svg.png")
 st.sidebar.image(image=img, width=150)
 st.sidebar.markdown("### Client Information")
 profiles = pd.read_csv("./assets/b2b_profiles.csv")
