@@ -4,7 +4,7 @@ import os
 import openai
 from pathlib import Path
 from io import StringIO
-import imageio as iio
+import imageio.v2 as iio
 from streamlit_extras.app_logo import add_logo
 from datetime import date
 
@@ -26,10 +26,10 @@ if 'past' not in st.session_state:
     st.session_state['past'] = []
 
 
-img = iio.imread('./assets/tmo_logo_short.png')
-cols1, cols2, cols3 = st.sidebar.columns([1, 1, 1])
-with cols2:
-    st.image(image=img, width=80)
+img = iio.imread('./assets/tmo_logo.png')
+# cols1, cols2, cols3 = st.sidebar.columns([1, 1, 1])
+# with cols2:
+st.sidebar.image(image=img, width=200)
 
 st.sidebar.markdown("# User profile parameters")
 
