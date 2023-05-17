@@ -27,7 +27,9 @@ if 'past' not in st.session_state:
 
 
 img = iio.imread('./assets/tmo_logo_short.png')
-st.sidebar.image(image=img, width=100)
+cols1, cols2, cols3 = st.sidebar.columns([1, 1, 1])
+with cols2:
+    st.image(image=img, width=80)
 
 st.sidebar.markdown("# User profile parameters")
 
