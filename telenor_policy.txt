@@ -1,5 +1,5 @@
 List of Telenor wireless plans
-1. Unlimited Data Plan:  Unlimited talk, text and unlimited data for $90 per month.
+1. Unlimited Data Plan:  Unlimited talk, text and unlimited data for \$90 per month.
 
 2. Small Data Plan: 5GB of data for $30 per month. Ideal for customer who don't use a lot of data.
 
