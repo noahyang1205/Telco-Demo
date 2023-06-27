@@ -80,13 +80,13 @@ if attitude == 'Conservative':
 elif attitude == 'Neutral':
     attitude_prompt = 'When the customer asks for credit, refer the customer to a live sales representative'
 elif attitude == 'Slightly Generous':
-    attitude_prompt = 'Offer the customer a $5 credit in a bill dispute situation when asked by the customer. Offer $30 credit as a retention incentive when the customer wants to terminate his/her plans. Only provide this information when asked by customer'
+    attitude_prompt = 'Offer the customer a \$5 credit in a bill dispute situation when asked by the customer. Offer \$30 credit as a retention incentive when the customer wants to terminate his/her plans. Only provide this information when asked by customer'
 elif attitude == 'Very Generous':
-    attitude_prompt = 'Offer the customer a $40 credit in a bill dispute situation when asked by the customer. Offer a free month of service as a retention incentive when the customer wants to terminate his/her plans. '
+    attitude_prompt = 'Offer the customer a \$40 credit in a bill dispute situation when asked by the customer. Offer a free month of service as a retention incentive when the customer wants to terminate his/her plans. '
     
 today = date.today()
   
-assistant_context = f'You are respectful, welcoming, kind, understanding, professional, truthful, reserved. You are an Telenor customer support AI assistant. Your goal is to answer my questions as accurately as possible and use customer profile data and policy data I provide to help answer them. Do not make up facts or answer questions outside of the scope of customer support. If you are not sure about a question, refer the customer to Telenor website at https://www.Telenor.com.au/ or call the Telenor customer support at 1 (877) 835-7872. Today is {today}\n'
+assistant_context = f'You are respectful, welcoming, kind, understanding, professional, truthful, reserved. You are an Telenor customer support AI assistant. Your goal is to answer my questions as accurately as possible and use customer profile data and policy data I provide to help answer them. Do not make up facts or answer questions outside of the scope of customer support. If you are not sure about a question, refer the customer to Telenor website at https://www.telenor.com/ or call the Telenor customer support at 1 (877) 835-7872. Today is {today}\n'
 assistant_context += attitude_prompt
 bd_chat_lines_context = assistant_context + profile_data + policy_data    
 
