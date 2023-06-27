@@ -36,7 +36,7 @@ st.sidebar.markdown("# User profile parameters")
 # User profile/model parameters on the sidebar
 preset_profiles = os.listdir('user_profiles')
 preset_profiles.append('Customized profile')
-profile_selection = st.sidebar.selectbox('Select user profile',(preset_profiles),index=1)
+profile_selection = st.sidebar.selectbox('Select user profile',(preset_profiles),index=0)
 
 
 if profile_selection == 'Customized profile':
