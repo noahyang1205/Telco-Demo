@@ -26,7 +26,7 @@ if "past" not in st.session_state:
 img = iio.imread("./assets/telstra-logo.png")
 st.sidebar.header("Telecom Co.")
 
-st.sidebar.markdown("# User profile parameters")
+st.sidebar.markdown("### User profile parameters")
 
 # User profile/model parameters on the sidebar
 preset_profiles = os.listdir("user_profiles")
@@ -90,7 +90,7 @@ expander = st.sidebar.expander("See policy")
 expander.write(policy_data)
 
 # st.sidebar.write('## ')
-st.sidebar.markdown("# Chatbot parameters")
+st.sidebar.markdown("### Chatbot parameters")
 
 ft_model_name, non_ft_model_name, chat_model = (
     "Fine-tuned model: ada:ft-bain-data-science-2023-03-02-00-53-43",
