@@ -7,7 +7,7 @@ import imageio as iio
 from streamlit_extras.app_logo import add_logo
 from datetime import date
 from openai import OpenAI
-
+import openai
 client = OpenAI()
 st.set_page_config(page_title="Telstra chat-bot demo", page_icon=":robot:")
 
