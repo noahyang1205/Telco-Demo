@@ -10,11 +10,11 @@ from openai import OpenAI
 import openai
 
 client = OpenAI()
-st.set_page_config(page_title="Telstra chat-bot demo", page_icon=":robot:")
+st.set_page_config(page_title="Telco chat-bot demo", page_icon=":robot:")
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-st.header("Telstra Chat Log")
+st.header("Telco Chat Log")
 
 if "generated" not in st.session_state:
     st.session_state["generated"] = []
@@ -24,7 +24,7 @@ if "past" not in st.session_state:
 
 
 img = iio.imread("./assets/telstra-logo.png")
-st.sidebar.image(image=img)
+st.sidebar.header("Telecom Co.")
 
 st.sidebar.markdown("# User profile parameters")
 
@@ -109,7 +109,7 @@ attitude = st.sidebar.select_slider(
 )
 
 if attitude == "Conservative":
-    attitude_prompt = "Under no circumstances will you offer any credits to the customer. You will tell the customer explicitly that a customer support chatbot cannot offer any credits and Telstra does not have a credit policy"
+    attitude_prompt = "Under no circumstances will you offer any credits to the customer. You will tell the customer explicitly that a customer support chatbot cannot offer any credits and Telco does not have a credit policy"
 elif attitude == "Neutral":
     attitude_prompt = "When the customer asks for credit, refer the customer to a live sales representative"
 elif attitude == "Slightly Generous":
@@ -119,9 +119,8 @@ elif attitude == "Very Generous":
 
 today = date.today()
 
-assistant_context = f"You are respectful, welcoming, kind, understanding, professional, truthful, reserved. You are an Telstra customer support AI assistant. Your goal is to answer my questions as accurately as possible and use customer profile data and policy data I provide to help answer them. Do not make up facts or answer questions outside of the scope of customer support. If you are not sure about a question, refer the customer to Telstra website at https://www.telstra.com.au/ or call the Telstra customer support at 1 (877) 835-7872. Today is {today}\n"
-assistant_context += attitude_prompt
-bd_chat_lines_context = assistant_context + profile_data + policy_data
+assistant_context = f"You are respectful, welcoming, kind, understanding, professional, truthful, reserved. You are an Telstra customer support AI assistant. Your goal is to answer my questions as accurately as possible and use customer profile data and policy data I provide to help answer them. Do not make up facts or answer questions outside of the scope of customer support. If you are not sure about a question, refer the customer to Telco website at https://www.Telco.com.au/ or call the Telco customer support at 1 (877) 835-7872. Today is {today}\n"
+assistant_context = assistant_context + attitude_prompt + profile_data + policy_data
 
 expander = st.sidebar.expander("See chatbot personality")
 expander.write(assistant_context)
