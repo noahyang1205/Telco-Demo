@@ -158,7 +158,7 @@ def query(prompt):
         # print('Non ft model')
         response = openai.Completion.create(
             model="text-davinci-003",
-            prompt=openAI_prompt,
+            prompt=assistant_context,
             temperature=temperature,
             max_tokens=512,
             top_p=1,
@@ -171,7 +171,7 @@ def query(prompt):
         # print('FT model')
         response = openai.Completion.create(
             model="ada:ft-bain-data-science-2023-03-02-00-53-43",
-            prompt=openAI_prompt,
+            prompt=assistant_context,
             temperature=temperature,
             max_tokens=511,
             top_p=1,
