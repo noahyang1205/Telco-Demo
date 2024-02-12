@@ -182,7 +182,7 @@ def query(prompt):
             timeout=20,
         )
 
-    response_text = response.choices[0].message
+    response_text = response.choices[0].message["content"]
     # response_text = response_text.replace("A:", "")
     # response_text = response_text.replace("\n", "")
 
