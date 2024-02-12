@@ -8,6 +8,7 @@ from streamlit_extras.app_logo import add_logo
 from datetime import date
 from openai import OpenAI
 import openai
+
 client = OpenAI()
 st.set_page_config(page_title="Telstra chat-bot demo", page_icon=":robot:")
 
@@ -98,7 +99,7 @@ ft_model_name, non_ft_model_name, chat_model = (
 )
 
 option = st.sidebar.selectbox(
-    "Select models", (non_ft_model_name, ft_model_name), index=0
+    "Select models", (non_ft_model_name, ft_model_name, chat_model), index=2
 )
 print(option)
 
