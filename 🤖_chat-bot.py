@@ -95,7 +95,7 @@ st.sidebar.markdown("# Chatbot parameters")
 ft_model_name, non_ft_model_name, chat_model = (
     "Fine-tuned model: ada:ft-bain-data-science-2023-03-02-00-53-43",
     "Non-fine-tuned model: text-davinci-003",
-    "gpt-3.5-turbo",
+    "gpt-4",
 )
 
 option = st.sidebar.selectbox(
@@ -182,9 +182,9 @@ def query(prompt):
             timeout=20,
         )
 
-    response_text = response["choices"][0]["text"]
-    response_text = response_text.replace("A:", "")
-    response_text = response_text.replace("\n", "")
+    response_text = response.choices[0].message
+    # response_text = response_text.replace("A:", "")
+    # response_text = response_text.replace("\n", "")
 
     prompt["inputs"]["generated_responses"].append(response_text)
 
